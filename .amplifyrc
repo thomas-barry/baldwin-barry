@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "baldwinbarry-20190105140928-authRole",
+            "UnauthRoleArn": "arn:aws:iam::211921472602:role/baldwinbarry-20190105140928-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::211921472602:role/baldwinbarry-20190105140928-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "baldwinbarry-20190105140928-deployment",
+            "UnauthRoleName": "baldwinbarry-20190105140928-unauthRole",
+            "StackName": "baldwinbarry-20190105140928",
+            "StackId": "arn:aws:cloudformation:us-east-1:211921472602:stack/baldwinbarry-20190105140928/6cb78100-111d-11e9-86b6-12d48e821f84"
+        }
+    }
+}
