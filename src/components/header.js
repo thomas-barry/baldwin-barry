@@ -1,34 +1,39 @@
+import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
+import styled from 'styled-components'
+
+const StyledOuterContainer = styled.div`
+  background: #bb0826;
+  margin-bottom: 1.45rem;
+`
+
+const StyledInnerContainer = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1rem 1.0875rem; 
+`
+
+const StyledHeader = styled.h1`
+  margin: 0;
+  letter-spacing: 3px;
+`
+
+const StyledLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+`
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+  <StyledOuterContainer>
+    <StyledInnerContainer>
+      <StyledHeader>
+        <StyledLink to="/">
           {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
+        </StyledLink>
+      </StyledHeader>
+    </StyledInnerContainer>
+  </StyledOuterContainer>
 )
 
 Header.propTypes = {
