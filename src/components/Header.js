@@ -15,8 +15,9 @@ const StyledInnerContainer = styled.div`
 `
 
 const StyledHeader = styled.h1`
+  font-size: 24px;
   margin: 0;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 `
 
 const StyledLink = styled(Link)`
