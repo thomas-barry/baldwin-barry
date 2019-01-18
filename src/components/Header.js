@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledOuterContainer = styled.div`
-  background: #bb0826;
+  background: #d71e28;
   margin-bottom: 1.45rem;
+  border-bottom: 4px solid #fcc60a;
 `
 
 const StyledInnerContainer = styled.div`
