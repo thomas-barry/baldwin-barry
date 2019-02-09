@@ -1,15 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Layout from '../layouts/Layout'
-import rehypeReact from "rehype-react"
-import Name from '../components/Name'
+import { graphql } from 'gatsby'
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: { 
-    'name': Name 
-  }
-}).Compiler
+import Layout from '../layouts/Layout'
 
 export default function Template({ data }) {
   const post = data.markdownRemark
@@ -18,20 +11,21 @@ export default function Template({ data }) {
       <Helmet title={`BaldwinBarry- ${post.frontmatter.title}`} />
       <div className="blog-post">
         <h1>{post.frontmatter.title}</h1>
-        <div>{renderAst(post.htmlAst)}</div>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      htmlAst
+  query BlogPostBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
         title
+        date(formatString: "MMMM DD, YYYY")
       }
     }
   }
