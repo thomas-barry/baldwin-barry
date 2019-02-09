@@ -1,20 +1,14 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
-import Layout from '../layouts/Layout'
-import Image from '../components/Image'
-import SEO from '../components/seo'
+import Layout from '../components/layout/Layout'
+import SEO from '../components/seo/Seo'
+import BlogIndex from '../components/blog-index/BlogIndex'
 
-const IndexPage = props => {
+export default () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <Link to="/page-2/">Go to page 2</Link>
+      <BlogIndex />
     </Layout>
   )
 }
-
-export default IndexPage

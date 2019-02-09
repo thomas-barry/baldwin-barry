@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Thomas Baldwin Barry`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Random musings`,
     author: `@gatsbyjs`,
+    blogPath: 'blog',
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -55,8 +56,5 @@ module.exports = {
       }
     },
     `gatsby-plugin-remove-trailing-slashes`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
   ],
 }
