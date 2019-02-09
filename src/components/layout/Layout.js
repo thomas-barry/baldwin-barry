@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Header from '../components/Header'
 
-import './Layout.css'
+import SiteHeader from '../site-header/SiteHeader'
 
 const StyledFooter = styled.footer`
   margin-top: 1rem;
@@ -22,8 +21,8 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+      <React.Fragment>
+        <SiteHeader siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
             margin: `0 auto`,
@@ -37,7 +36,7 @@ const Layout = ({ children }) => (
             © {new Date().getFullYear()}
           </StyledFooter>
         </div>
-      </>
+      </React.Fragment>
     )}
   />
 )

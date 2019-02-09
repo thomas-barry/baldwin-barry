@@ -12,13 +12,14 @@ const StyledOuterContainer = styled.div`
 const StyledInnerContainer = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 1rem 1.0875rem; 
+  padding: .8rem 1.0875rem; 
 `
 
 const StyledHeader = styled.h1`
   font-size: 24px;
   margin: 0;
   letter-spacing: 2px;
+  font-weight: normal;
 `
 
 const StyledLink = styled(Link)`
