@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledOuterContainer = styled.div`
-  background: #d71e28;
+  background: #9c1d24;
   margin-bottom: 1.45rem;
-  border-bottom: 4px solid #fcc60a;
+  border-bottom: 3px solid #fcc60a;
 `
 
 const StyledInnerContainer = styled.div`
@@ -20,6 +20,7 @@ const StyledHeader = styled.h1`
   margin: 0;
   letter-spacing: 2px;
   font-weight: normal;
+  color: #dadada;
 `
 
 const StyledLink = styled(Link)`

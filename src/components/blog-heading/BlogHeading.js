@@ -13,7 +13,7 @@ const StyledHeading = styled.h2`
   font-size: 28px;
   font-weight: 400;
   letter-spacing: 2px;
-  color: #00698c;
+  color: #5578f3;
 `
 
 const StyledDate = styled.div`

@@ -4,9 +4,14 @@ import styled from 'styled-components'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: gray;
-  h3 { 
-    color: #00698c;
+  color: #e1e1e1;
+  h2 { 
+    margin: 0;
+    font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #5578f3;
   }
 `
 
@@ -22,12 +27,12 @@ export default () => {
               return (
                 <div key={node.id}>
                   <StyledLink to={`${blogPath}${node.fields.slug}`}>
-                    <h3>
+                    <h2>
                       {node.frontmatter.title}{' '}
                       <span>
                         — {node.frontmatter.date}
                       </span>
-                    </h3>
+                    </h2>
                     <p>{node.excerpt}</p>
                   </StyledLink>
                 </div>
