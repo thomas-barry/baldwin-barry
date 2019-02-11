@@ -12,10 +12,8 @@ export default function Template({ data }) {
   return (
     <Layout>
       <Helmet title={`Baldwin.Barry- ${title}`} />
-      <div className="blog-post">
-        <BlogHeading date={date} title={title} />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      <BlogHeading date={date} title={title} />
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </Layout>
   )
 }
