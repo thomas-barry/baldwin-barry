@@ -56,5 +56,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-remove-trailing-slashes`,
+    `gatsby-mdx`,
   ],
 }
