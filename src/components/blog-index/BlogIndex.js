@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
     font-size: 28px;
     font-weight: 400;
     letter-spacing: 2px;
-    color: #5578f3;
+    color: #e0444d;
   }
 `
 
