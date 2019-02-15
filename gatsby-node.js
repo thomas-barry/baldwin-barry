@@ -10,6 +10,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/components/blog-post/BlogPost.js`)
+  const pageTemplate = path.resolve(`src/components/page/Page.js`)
 
   return graphql(`
     {
@@ -23,6 +24,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
             fields {
               slug
+              sourceName
             }
           }
         }
@@ -39,26 +41,50 @@ exports.createPages = ({ actions, graphql }) => {
     }
     const blogPath = result.data.site.siteMetadata.blogPath
     result.data.allMdx.edges.forEach(({ node }) => {
-      createPage({
-        path: `/${blogPath}${node.fields.slug}`,
-        component: blogPostTemplate,
-        context: { 
-          id: node.id,
-          slug: node.fields.slug,
-        }
-      });
-    });
+      const sourceName = node.fields.sourceName
+      if ('blog' === sourceName) {
+        createPage({
+          path: `/${blogPath}${node.fields.slug}`,
+          component: blogPostTemplate,
+          context: { 
+            id: node.id,
+            slug: node.fields.slug,
+          }
+        })
+      } else {
+        createPage({
+          path: `${node.fields.slug}`,
+          component: pageTemplate,
+          context: {
+            id: node.id,
+            slug: node.fields.slug,
+          }
+        })
+      }
+    })
   })
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({ node, name: `slug`, value: slug })
-  }
-  if (node.internal.type === "Mdx") {
+  if (node.internal.type === 'Mdx') {
+    const parent = getNode(node.parent);
     const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({ node, name: `slug`, value: slug })
+    if (parent.internal.type === 'File') {
+      createNodeField({
+        name: `sourceName`,
+        node,
+        value: parent.sourceInstanceName
+      });
+    }
   }
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  })
 }
