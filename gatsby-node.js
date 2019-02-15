@@ -13,14 +13,9 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMdx {
         edges {
           node {
-            excerpt(pruneLength: 250)
-            html
             id
             frontmatter {
               date
@@ -33,7 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
       site {
-        siteMetadata {
+        siteMetadata { 
           blogPath
         }
       }
@@ -43,16 +38,16 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
     const blogPath = result.data.site.siteMetadata.blogPath
-    result.data.allMarkdownRemark.edges
-      .forEach(({ node }) => {
-        createPage({
-          path: `/${blogPath}${node.fields.slug}`,
-          component: blogPostTemplate,
-          context: {
-            slug: node.fields.slug,
-          } 
-        })
-      })
+    result.data.allMdx.edges.forEach(({ node }) => {
+      createPage({
+        path: `/${blogPath}${node.fields.slug}`,
+        component: blogPostTemplate,
+        context: { 
+          id: node.id,
+          slug: node.fields.slug,
+        }
+      });
+    });
   })
 }
 

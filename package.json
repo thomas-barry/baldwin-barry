@@ -5,9 +5,11 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@babel/standalone": "^7.3.2",
     "@mdx-js/mdx": "^0.16.8",
     "@mdx-js/tag": "^0.16.8",
     "babel-plugin-styled-components": "^1.10.0",
+    "babel-standalone": "^6.26.0",
     "flexbox-react": "^4.4.0",
     "gatsby": "^2.0.116",
     "gatsby-image": "^2.0.29",

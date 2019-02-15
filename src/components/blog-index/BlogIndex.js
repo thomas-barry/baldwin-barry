@@ -23,7 +23,7 @@ export default () => {
         const blogPath = data.site.siteMetadata.blogPath
         return (
           <div>
-            {data.allMarkdownRemark.edges.map(({ node }) => {
+            {data.allMdx.edges.map(({ node }) => {
               return (
                 <div key={node.id}>
                   <StyledLink to={`${blogPath}${node.fields.slug}`}>
@@ -47,7 +47,7 @@ export default () => {
 
 const blogIndexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {
