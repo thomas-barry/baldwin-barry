@@ -1,0 +1,76 @@
+---
+date: "2019-02-15"
+title: "React: Evolution of Internal State"
+---
+
+import LiveDemo from 'components/live-demo/LiveDemo'
+
+There are different ways to manage a React component's internal state. The first uses a class component:
+
+<LiveDemo 
+  code={`
+class ClassExample extends React.Component {
+  
+  constructor(props) {
+    super(props)
+    this.state = { counter: 0 }
+  }
+ 
+  increment = () => this.setState(({ counter }) => ({ counter: counter + 1 }))
+  
+  render() {
+    return (
+      <div>
+        <Button onClick={this.increment}>Increment</Button>
+        <p>Counter: {this.state.counter}</p>
+      </div>
+    )
+  }
+  
+}
+`.trim()
+  } 
+/>
+
+<LiveDemo 
+  noInline={true}
+  code={`
+const withCounterHandler = withStateHandlers(
+  () => ({ counter: 0 }),
+  {
+    increment: ({ counter }) => () => ({ counter: counter + 1 })
+  }
+)
+  
+const RecomposeExample = withCounterHandler(
+  ({ counter, increment }) => { 
+  return (
+    <div>
+      <Button onClick={increment}>Increment</Button>
+      <p>Counter: {counter}</p>
+    </div>
+  )
+})
+ 
+render(<RecomposeExample />)
+`.trim()
+} />
+
+<LiveDemo 
+  noInline={true}
+  code={`
+const increment = (counter, setCounter) => () => setCounter(counter + 1)
+ 
+const HooksExample = () => { 
+  const [counter, setCounter] = React.useState(0)
+  return (
+    <div>
+      <Button onClick={increment(counter, setCounter)}>Increment</Button>
+      <p>Counter: {counter}</p>
+    </div>
+  )
+} 
+ 
+render(<HooksExample />)
+`.trim()
+} />

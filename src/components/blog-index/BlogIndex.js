@@ -4,15 +4,19 @@ import styled from 'styled-components'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #e1e1e1;
+  color: #727272;
   h2 { 
     margin: 0;
     font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 28px;
     font-weight: 400;
     letter-spacing: 2px;
-    color: #e0444d;
+    color: #bb0826;
   }
+`
+
+const StyledDate = styled.div`
+  font-size: 14px;
 `
 
 export default () => {
@@ -29,10 +33,8 @@ export default () => {
                   <StyledLink to={`${blogPath}${node.fields.slug}`}>
                     <h2>
                       {node.frontmatter.title}{' '}
-                      <span>
-                        — {node.frontmatter.date}
-                      </span>
                     </h2>
+                    <StyledDate>{node.frontmatter.date}</StyledDate>
                     <p>{node.excerpt}</p>
                   </StyledLink>
                 </div>
@@ -57,7 +59,7 @@ const blogIndexQuery = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM DD, YYYY")
           }
           fields { 
             slug

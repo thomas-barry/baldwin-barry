@@ -1,22 +1,34 @@
 import React from 'react'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import { withStateHandlers } from 'recompose'
 import styled from 'styled-components'
 
+import Button from '../button/Button'
 import transformCode from '../../lib/transform-code/transform-code'
 
 const StyledLiveEditor = styled(LiveEditor)`
   font-size: 16px;
 `
 
-const LiveDemo = ({ code, ...props }) => {
+const StyledLivePreview = styled(LivePreview)`
+  padding-top: 8px;
+`
+
+const scope = {
+  withStateHandlers,
+  Button,
+}
+
+const LiveDemo = ({ code, noInline = false }) => {
   return (
     <LiveProvider 
-      {...props} 
       code={code}
+      noInline={noInline}
+      scope={scope}
       transformCode={transformCode}>
         <StyledLiveEditor />
         <LiveError />
-        <LivePreview />
+        <StyledLivePreview />
     </LiveProvider>
   )
 }
