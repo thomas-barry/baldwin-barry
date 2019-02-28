@@ -7,7 +7,7 @@ const useSpeechEngine = () => {
   
   useEffect(() => {
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition
-    if ('SpeechRecognition' in window) {
+    if (typeof window.SpeechRecognition !== 'undefined') {
       const speechEngine = new window.SpeechRecognition()
       speechEngine.onresult = onSpeechResult(speechEngine)
       speechEngine.onerror = onSpeechError(speechEngine)

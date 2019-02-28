@@ -21,6 +21,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               date
               title
+              unfinished 
             }
             fields {
               slug
@@ -42,7 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
     const blogPath = result.data.site.siteMetadata.blogPath
     result.data.allMdx.edges.forEach(({ node }) => {
       const sourceName = node.fields.sourceName
-      if ('blog' === sourceName) {
+      if ('blog' === sourceName && !!!node.frontmatter.unfinished) {
         createPage({
           path: `/${blogPath}${node.fields.slug}`,
           component: blogPostTemplate,

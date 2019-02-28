@@ -27,10 +27,11 @@ export default () => {
         const blogPath = data.site.siteMetadata.blogPath
         return (
           <div>
-            {data.allMdx.edges.map(({ node }) => {
-              return (
+            {data.allMdx.edges
+              .filter(({ node }) => !node.frontmatter.unfinished)
+              .map(({ node }) => (
                 <div key={node.id}>
-                  <StyledLink to={`${blogPath}${node.fields.slug}`}>
+                  <StyledLink to={`/${blogPath}${node.fields.slug}`}>
                     <h2>
                       {node.frontmatter.title}{' '}
                     </h2>
@@ -39,7 +40,7 @@ export default () => {
                   </StyledLink>
                 </div>
               )
-            })}
+            )}
           </div>
         )
       }}
@@ -60,6 +61,7 @@ const blogIndexQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            unfinished 
           }
           fields { 
             slug

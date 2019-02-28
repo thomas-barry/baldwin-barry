@@ -1,13 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Button from '../button/Button'
 import useSpeechEngine from './use-speech-engine'
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;  
-`
 
 const SpeechRecognitionDemo = () => {
 
@@ -21,11 +15,13 @@ const SpeechRecognitionDemo = () => {
   return (
     <React.Fragment>
       <p>Speech Recognition Enabled: {speechEnabled ? 'Yes' : 'No'}</p>
-      <p>Listening: {listening ? 'Yes' : 'No'}</p>
-      <p>Result: {speechResult}</p>
-      <ButtonContainer>
-        <Button onClick={listen} disabled={listening}>Listen</Button>
-      </ButtonContainer>
+      {speechEnabled && 
+        <React.Fragment>
+          <p>Listening: {listening ? 'Yes' : 'No'}</p>
+          <p>Result: {speechResult}</p>
+          <Button onClick={listen} disabled={listening}>Listen</Button>
+        </React.Fragment>
+      }
     </React.Fragment>
   )
 
