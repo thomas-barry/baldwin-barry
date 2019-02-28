@@ -4,15 +4,19 @@ import styled from 'styled-components'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #e1e1e1;
+  color: #727272;
   h2 { 
     margin: 0;
     font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 28px;
     font-weight: 400;
     letter-spacing: 2px;
-    color: #5578f3;
+    color: #bb0826;
   }
+`
+
+const StyledDate = styled.div`
+  font-size: 14px;
 `
 
 export default () => {
@@ -23,21 +27,20 @@ export default () => {
         const blogPath = data.site.siteMetadata.blogPath
         return (
           <div>
-            {data.allMarkdownRemark.edges.map(({ node }) => {
-              return (
+            {data.allMdx.edges
+              .filter(({ node }) => !node.frontmatter.unfinished)
+              .map(({ node }) => (
                 <div key={node.id}>
-                  <StyledLink to={`${blogPath}${node.fields.slug}`}>
+                  <StyledLink to={`/${blogPath}${node.fields.slug}`}>
                     <h2>
                       {node.frontmatter.title}{' '}
-                      <span>
-                        — {node.frontmatter.date}
-                      </span>
                     </h2>
+                    <StyledDate>{node.frontmatter.date}</StyledDate>
                     <p>{node.excerpt}</p>
                   </StyledLink>
                 </div>
               )
-            })}
+            )}
           </div>
         )
       }}
@@ -47,14 +50,18 @@ export default () => {
 
 const blogIndexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      filter: { fields: { sourceName: { eq: "blog" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       totalCount
       edges {
         node {
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM DD, YYYY")
+            unfinished 
           }
           fields { 
             slug

@@ -13,14 +13,13 @@ const StyledHeading = styled.h2`
   font-size: 28px;
   font-weight: 400;
   letter-spacing: 2px;
-  color: #5578f3;
+  color: #bb0826;
 `
 
 const StyledDate = styled.div`
   margin: 0;
   color: gray;
   text-align: right;
-  padding-right: 1em;
 `
 
 export default ({ title, date }) => {

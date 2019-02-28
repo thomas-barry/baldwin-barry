@@ -26,6 +26,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/resume`,
+        name: `resume`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
@@ -55,6 +62,18 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: { 
+              maxWidth: 1035
+            }
+          }
+        ]
+      }
+    }
   ],
 }
