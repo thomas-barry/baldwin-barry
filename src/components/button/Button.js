@@ -1,4 +1,4 @@
 import React from 'react'
-import { Button } from 'rebass'
+import { Button } from '@smooth-ui/core-sc'
 
-export default ({ children, ...keepProps }) => <Button {...keepProps} bg="highlight">{children}</Button>
+export default ({ children, ...keepProps }) => <Button {...keepProps}>{children}</Button>

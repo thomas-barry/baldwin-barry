@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 
-window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition
-
 const useSpeechEngine = () => {
   const [speechEngine, setSpeechEngine] = useState(null)
   const [speechResult, setSpeechResult] = useState()
   const [listening, setListening] = useState(false)
   
   useEffect(() => {
+    window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition
     if ('SpeechRecognition' in window) {
       const speechEngine = new window.SpeechRecognition()
       speechEngine.onresult = onSpeechResult(speechEngine)

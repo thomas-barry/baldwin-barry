@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from '@smooth-ui/core-sc'
 
 import Layout from '../layout/Layout'
 import BlogHeading from '../blog-heading/BlogHeading'

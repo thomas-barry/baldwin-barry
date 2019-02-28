@@ -24,7 +24,7 @@ const SpeechRecognitionDemo = () => {
       <p>Listening: {listening ? 'Yes' : 'No'}</p>
       <p>Result: {speechResult}</p>
       <ButtonContainer>
-        <Button onClick={listen}>Listen</Button>
+        <Button onClick={listen} disabled={listening}>Listen</Button>
       </ButtonContainer>
     </React.Fragment>
   )
