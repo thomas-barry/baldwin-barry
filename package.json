@@ -11,7 +11,7 @@
     "@mdx-js/tag": "^0.16.8",
     "babel-preset-env": "^1.7.0",
     "babel-standalone": "^6.26.0",
-    "capybara-react-ui": "~0.0.5",
+    "capybara-react-ui": "0.0.6",
     "clsx": "^1.0.3",
     "emotion-theming": "^10.0.7",
     "flexbox-react": "^4.4.0",
