@@ -1,17 +1,18 @@
 import React from 'react'
-import { StaticQuery, Link, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: #727272;
+import BlogLink from '../blog-link/BlogLink'
+
+const isDevelopment = 'development' === process.env.NODE_ENV
+
+const StyledBlogLink = styled(BlogLink)`
   h2 { 
     margin: 0;
     font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 28px;
     font-weight: 400;
     letter-spacing: 2px;
-    color: #bb0826;
   }
 `
 
@@ -28,16 +29,16 @@ export default () => {
         return (
           <div>
             {data.allMdx.edges
-              .filter(({ node }) => !node.frontmatter.unfinished)
+              .filter(({ node }) => (isDevelopment || !node.frontmatter.unfinished))
               .map(({ node }) => (
                 <div key={node.id}>
-                  <StyledLink to={`/${blogPath}${node.fields.slug}`}>
+                  <StyledBlogLink unfinished={node.frontmatter.unfinished} to={`/${blogPath}${node.fields.slug}`}>
                     <h2>
                       {node.frontmatter.title}{' '}
                     </h2>
                     <StyledDate>{node.frontmatter.date}</StyledDate>
                     <p>{node.excerpt}</p>
-                  </StyledLink>
+                  </StyledBlogLink>
                 </div>
               )
             )}
