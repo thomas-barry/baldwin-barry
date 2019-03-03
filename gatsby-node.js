@@ -7,6 +7,8 @@
 const path = require('path')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const isDevelopment = 'development' === process.env.NODE_ENV
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/components/blog-post/BlogPost.js`)
@@ -43,7 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
     const blogPath = result.data.site.siteMetadata.blogPath
     result.data.allMdx.edges.forEach(({ node }) => {
       const sourceName = node.fields.sourceName
-      if ('blog' === sourceName && !!!node.frontmatter.unfinished) {
+      if ('blog' === sourceName && (isDevelopment || !!!node.frontmatter.unfinished)) {
         createPage({
           path: `/${blogPath}${node.fields.slug}`,
           component: blogPostTemplate,

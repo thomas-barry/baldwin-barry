@@ -3,7 +3,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { withStateHandlers } from 'recompose'
 import styled from '@emotion/styled'
 
-import { Button } from 'capybara-react-ui'
+import Button from '../../components/button/Button'
 import transformCode from '../../lib/transform-code/transform-code'
 
 const StyledLiveEditor = styled(LiveEditor)`
