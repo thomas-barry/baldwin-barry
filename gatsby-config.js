@@ -6,7 +6,11 @@ module.exports = {
     blogPath: 'blog',
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-less`,
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {},
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
     {
@@ -57,10 +61,10 @@ module.exports = {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: { maxWidth: 1080 }
-          }
-        ]
-      }
+            options: { maxWidth: 1080 },
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-mdx`,
@@ -68,12 +72,12 @@ module.exports = {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: { 
-              maxWidth: 1035
-            }
-          }
-        ]
-      }
-    }
+            options: {
+              maxWidth: 1035,
+            },
+          },
+        ],
+      },
+    },
   ],
 }

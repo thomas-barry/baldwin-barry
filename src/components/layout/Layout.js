@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import SiteHeader from '../site-header/SiteHeader'
 
@@ -32,9 +32,7 @@ const Layout = ({ children }) => (
           }}
         >
           {children}
-          <StyledFooter>
-            © {new Date().getFullYear()}
-          </StyledFooter>
+          <StyledFooter>© {new Date().getFullYear()}</StyledFooter>
         </div>
       </React.Fragment>
     )}

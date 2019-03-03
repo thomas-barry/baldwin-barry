@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const StyledOuterContainer = styled.div`
   background: #bb0826;

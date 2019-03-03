@@ -1,14 +1,13 @@
 ---
-date: "2019-02-15"
-title: "React: Evolution of Internal State"
-unfinished: true 
+date: '2019-02-15'
+title: 'Evolution of internal state management in React components'
 ---
 
-import LiveDemo from 'components/live-demo/LiveDemo'
+import LiveDemo from 'demos/live-demo/LiveDemo'
 
-There are different ways to manage a React component's internal state. The first uses a class component:
+Internal state in a class component
 
-<LiveDemo 
+<LiveDemo
   code={`
 class ClassExample extends React.Component {
   
@@ -29,11 +28,12 @@ class ClassExample extends React.Component {
   }
   
 }
-`.trim()
-  } 
+`.trim()}
 />
 
-<LiveDemo 
+Managing state with recompose
+
+<LiveDemo
   noInline={true}
   code={`
 const withCounterHandler = withStateHandlers(
@@ -54,10 +54,12 @@ const RecomposeExample = withCounterHandler(
 })
  
 render(<RecomposeExample />)
-`.trim()
-} />
+`.trim()}
+/>
 
-<LiveDemo 
+Managing state with React hooks
+
+<LiveDemo
   noInline={true}
   code={`
 const increment = (counter, setCounter) => () => setCounter(counter + 1)
@@ -73,5 +75,5 @@ const HooksExample = () => {
 } 
  
 render(<HooksExample />)
-`.trim()
-} />
+`.trim()}
+/>
