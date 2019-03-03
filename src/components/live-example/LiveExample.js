@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Babel from "@babel/standalone";
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import {
   LiveProvider,

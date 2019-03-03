@@ -1,6 +1,6 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { useMedia } from 'react-use-media'
 
 const StyledContainer = styled.div`

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Prism from 'prismjs'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const StyledCode = styled.code`
   font-size: 16px;
