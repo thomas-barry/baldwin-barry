@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from '@emotion/styled'
 
 import Button from '../../components/button/Button'
@@ -9,9 +10,10 @@ const StyledContainer = styled.div`
   flex-direction: column;
 `
 
-const ThemingDemo = () => {
+const ThemingDemo = ({ theme }) => {
   return (
     <StyledContainer>
+      <div>{theme}</div>
       <Button>Primary</Button>
       <Button disabled>Primary (disabled)</Button>
       <Button secondary>Secondary</Button>
@@ -25,4 +27,11 @@ const ThemingDemo = () => {
   )
 }
 
-export default ThemingDemo
+const mapStateToProps = state => ({
+  theme: state.theme,
+})
+
+export default connect(
+  mapStateToProps,
+  null
+)(ThemingDemo)

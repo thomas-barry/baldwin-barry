@@ -7,3 +7,7 @@
 import './src/css/normalize.css'
 import './src/css/prism.css'
 import './src/css/site.css'
+
+export {
+  default as wrapRootElement,
+} from './src/components/redux-wrapper/ReduxWrapper'
