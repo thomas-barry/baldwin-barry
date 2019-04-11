@@ -23,7 +23,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               date
               title
-              unfinished 
+              unfinished
             }
             fields {
               slug
@@ -33,26 +33,29 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
       site {
-        siteMetadata { 
+        siteMetadata {
           blogPath
         }
       }
-    }`
-  ).then(result => {
+    }
+  `).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
     const blogPath = result.data.site.siteMetadata.blogPath
     result.data.allMdx.edges.forEach(({ node }) => {
       const sourceName = node.fields.sourceName
-      if ('blog' === sourceName && (isDevelopment || !!!node.frontmatter.unfinished)) {
+      if (
+        'blog' === sourceName &&
+        (isDevelopment || !!!node.frontmatter.unfinished)
+      ) {
         createPage({
           path: `/${blogPath}${node.fields.slug}`,
           component: blogPostTemplate,
-          context: { 
+          context: {
             id: node.id,
             slug: node.fields.slug,
-          }
+          },
         })
       } else {
         createPage({
@@ -61,7 +64,7 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             id: node.id,
             slug: node.fields.slug,
-          }
+          },
         })
       }
     })
@@ -70,16 +73,19 @@ exports.createPages = ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
+  if ('File' === node.internal.type) {
+    console.log(node)
+  }
   if (node.internal.type === 'Mdx') {
-    const parent = getNode(node.parent);
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
+    const parent = getNode(node.parent)
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({ node, name: `slug`, value: slug })
     if (parent.internal.type === 'File') {
       createNodeField({
         name: `sourceName`,
         node,
-        value: parent.sourceInstanceName
-      });
+        value: parent.sourceInstanceName,
+      })
     }
   }
 }
@@ -88,8 +94,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [
-        path.resolve(__dirname, 'src'), 
-        path.resolve(__dirname, 'node_modules'), 
+        path.resolve(__dirname, 'src'),
+        path.resolve(__dirname, 'node_modules'),
       ],
     },
   })

@@ -6,43 +6,11 @@ module.exports = {
     blogPath: 'blog',
   },
   plugins: [
-    `gatsby-plugin-less`,
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {},
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/resume`,
-        name: `resume`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/content/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-less`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -54,6 +22,10 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {},
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -78,6 +50,27 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/resume`,
+        name: `resume`,
       },
     },
   ],
