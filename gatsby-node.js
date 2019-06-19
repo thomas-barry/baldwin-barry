@@ -73,9 +73,6 @@ exports.createPages = ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if ('File' === node.internal.type) {
-    console.log(node)
-  }
   if (node.internal.type === 'Mdx') {
     const parent = getNode(node.parent)
     const slug = createFilePath({ node, getNode, basePath: `pages` })
