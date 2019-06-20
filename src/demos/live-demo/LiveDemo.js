@@ -8,6 +8,7 @@ import transformCode from '../../lib/transform-code/transform-code'
 
 const StyledLiveEditor = styled(LiveEditor)`
   font-size: 16px;
+  background-color: black;
 `
 
 const StyledLivePreview = styled(LivePreview)`

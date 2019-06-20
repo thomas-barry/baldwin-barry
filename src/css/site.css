@@ -1,14 +1,17 @@
 body {
-  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 21px;
+  font-family: medium-content-serif-font, Georgia, Cambria, 'Times New Roman',
+    Times, serif;
+  font-size: 18px;
   font-weight: 400;
   font-style: normal;
   line-height: 1.58;
   letter-spacing: -0.0666667px;
   color: #727272;
-  background-color: white; 
+  background-color: white;
 }
 
-h1, h2 {
-  font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+h1,
+h2 {
+  font-family: medium-content-sans-serif-font, 'Lucida Grande',
+    'Lucida Sans Unicode', 'Lucida Sans', Geneva, Arial, sans-serif;
 }

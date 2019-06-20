@@ -5,7 +5,11 @@ title: 'Evolution of internal state management in React components'
 
 import LiveDemo from 'demos/live-demo/LiveDemo'
 
-Internal state in a class component
+### Internal state in a class component
+
+The following example illustrates the basics of managing state in a traditional
+class component, by defining the initial state in the constructor, and changing it
+using the [setState](https://reactjs.org/docs/react-component.html#setstate) method.
 
 <LiveDemo
   code={`
@@ -31,7 +35,11 @@ class ClassExample extends React.Component {
 `.trim()}
 />
 
-Managing state with recompose
+### Managing state with recompose
+
+The [recompose](https://github.com/acdlite/recompose) library provides a fairly simple way
+of managing state in a functional component. With the introduction of React Hooks (see below),
+this library is more or less obsolete.
 
 <LiveDemo
   noInline={true}
@@ -57,18 +65,19 @@ render(<RecomposeExample />)
 `.trim()}
 />
 
-Managing state with React hooks
+### Managing state with React Hooks
+
+The React Hooks API makes managing state in a functional component dead simple. Long live React Hooks!
 
 <LiveDemo
   noInline={true}
   code={`
-const increment = (counter, setCounter) => () => setCounter(counter + 1)
- 
 const HooksExample = () => { 
   const [counter, setCounter] = React.useState(0)
+  const increment = () => setCounter(counter + 1)
   return (
     <div>
-      <Button onClick={increment(counter, setCounter)}>Increment</Button>
+      <Button onClick={increment}>Increment</Button>
       <p>Counter: {counter}</p>
     </div>
   )
