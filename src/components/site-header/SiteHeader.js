@@ -3,10 +3,16 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
+// import useScrollPosition from '../hooks/use-scroll-position'
+
 const StyledOuterContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: #bb0826;
-  margin-bottom: 1.45rem;
   border-bottom: 3px solid #fcc60a;
+  z-index: 1;
 `
 
 const StyledInnerContainer = styled.div`
@@ -28,17 +34,20 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const Header = ({ siteTitle }) => (
-  <StyledOuterContainer>
-    <StyledInnerContainer>
-      <StyledHeader>
-        <StyledLink to="/">
-          {siteTitle}
-        </StyledLink>
-      </StyledHeader>
-    </StyledInnerContainer>
-  </StyledOuterContainer>
-)
+const Header = ({ siteTitle }) => {
+  // const { y: scrollTop } = useScrollPosition()
+  return (
+    <StyledOuterContainer>
+      <StyledInnerContainer>
+        <StyledHeader>
+          <StyledLink to="/">
+            {siteTitle}
+          </StyledLink>
+        </StyledHeader>
+      </StyledInnerContainer>
+    </StyledOuterContainer>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

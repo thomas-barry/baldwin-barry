@@ -1,10 +1,8 @@
 import React from 'react'
-import Flexbox from 'flexbox-react'
 import styled from '@emotion/styled'
-import { useMedia } from 'react-use-media'
 
 const StyledContainer = styled.div`
-  margin: 2.5rem 0;
+  margin: 0 0 1.5rem 0;
 `
 
 const StyledHeading = styled.h2`
@@ -19,19 +17,12 @@ const StyledHeading = styled.h2`
 const StyledDate = styled.div`
   margin: 0;
   color: gray;
-  text-align: right;
+  font-size: 14px;
 `
 
-export default ({ title, date }) => {
-  const narrow = useMedia('(max-width: 599px)')
-  return (
-    <StyledContainer>
-      <Flexbox flexDirection={narrow ? "column" : "row"} alignItems="center">
-        <Flexbox flex="1 1 auto">
-          <StyledHeading el="h2">{title}</StyledHeading>
-        </Flexbox>
-        <StyledDate flex>{date}</StyledDate>
-      </Flexbox>
-    </StyledContainer>
-  )
-}
+export default ({ title, date }) => (
+  <StyledContainer>
+    <StyledHeading el="h2">{title}</StyledHeading>
+    <StyledDate flex>{date}</StyledDate>
+  </StyledContainer>
+)

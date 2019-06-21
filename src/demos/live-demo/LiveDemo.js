@@ -20,19 +20,16 @@ const scope = {
   Button,
 }
 
-const LiveDemo = ({ code, noInline = false }) => {
-  return (
-    <LiveProvider
-      code={code}
-      noInline={noInline}
-      scope={scope}
-      transformCode={transformCode}
-    >
-      <StyledLiveEditor />
-      <LiveError />
-      <StyledLivePreview />
-    </LiveProvider>
-  )
-}
+const LiveDemo = ({ code, noInline = false }) => (
+  <LiveProvider
+    code={code}
+    noInline={noInline}
+    scope={scope}
+    transformCode={transformCode}>
+    <StyledLiveEditor />
+    <LiveError />
+    <StyledLivePreview />
+  </LiveProvider>
+)
 
 export default LiveDemo
