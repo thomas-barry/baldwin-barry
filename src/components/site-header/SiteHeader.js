@@ -22,7 +22,7 @@ const StyledInnerContainer = styled.div`
   margin: 0 auto;
   max-width: 960px;
   padding: 0.8rem 1.0875rem;
-  padding: ${({ small }) => (small ? '0.2rem 1rem' : '0.8rem 1rem')};
+  padding: ${({ collapsed }) => (collapsed ? '0.2rem 1rem' : '0.8rem 1rem')};
   transition: padding 0.25s ease;
 `
 
@@ -31,7 +31,7 @@ const StyledHeader = styled.h1`
   letter-spacing: 2px;
   font-weight: normal;
   color: #dadada;
-  font-size: ${({ small }) => (small ? '16px' : '24px')};
+  font-size: ${({ collapsed }) => (collapsed ? '16px' : '24px')};
   transition: font-size 0.25s ease;
 `
 
@@ -44,28 +44,32 @@ const Header = ({ siteTitle }) => {
   const { y: scrollTop } = useScrollPosition()
   const [lastScrollTop, setLastScrollTop] = useState(scrollTop)
   const [lastDirection, setLastDirection] = useState(DOWN)
-  const [distance, setDistance] = useState(0)
+  const [delta, setDelta] = useState(lastScrollTop)
 
   useEffect(() => {
-    setLastScrollTop(scrollTop)
-    const direction = scrollTop > lastScrollTop ? DOWN : UP
-    setDistance(scrollTop - lastScrollTop)
+    console.log('HERE')
+    const direction = scrollTop !== lastScrollTop ? 
+      scrollTop > lastScrollTop ? DOWN : UP :
+      lastDirection
     if (direction !== lastDirection) {
-      setLastDirection(scrollTop > lastScrollTop ? DOWN : UP)
-      setDistance(0)
+      setLastDirection(direction)
+      setDelta(0)
+    } else {
+      setDelta(delta + Math.abs(scrollTop - lastScrollTop))
     }
-  }, [scrollTop])
+    setLastScrollTop(scrollTop)
+  }, [scrollTop, window.location])
 
-  const small = scrollTop > 80
-
-  console.log('Distance', distance)
+  const collapsed = 
+    (lastDirection === DOWN && delta > 100) ||
+    (lastDirection === UP && delta < 20)
 
   return (
     <StyledOuterContainer>
-      <StyledInnerContainer small={small}>
-        <StyledHeader small={small}>
+      <StyledInnerContainer collapsed={collapsed}>
+        <StyledHeader collapsed={collapsed}>
           <StyledLink to="/">
-            {siteTitle} {lastDirection ? 'UP' : 'DOWN'}
+            {siteTitle}
           </StyledLink>
         </StyledHeader>
       </StyledInnerContainer>
