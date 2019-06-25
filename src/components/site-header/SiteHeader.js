@@ -42,35 +42,47 @@ const StyledLink = styled(Link)`
 
 const Header = ({ siteTitle }) => {
   const { y: scrollTop } = useScrollPosition()
+  const [lastLocation, setLastLocation] = useState(window.location)
   const [lastScrollTop, setLastScrollTop] = useState(scrollTop)
   const [lastDirection, setLastDirection] = useState(DOWN)
   const [delta, setDelta] = useState(lastScrollTop)
 
   useEffect(() => {
-    console.log('HERE')
-    const direction = scrollTop !== lastScrollTop ? 
-      scrollTop > lastScrollTop ? DOWN : UP :
-      lastDirection
-    if (direction !== lastDirection) {
-      setLastDirection(direction)
+    const direction =
+      scrollTop !== lastScrollTop
+        ? scrollTop > lastScrollTop
+          ? DOWN
+          : UP
+        : lastDirection
+
+    if (lastLocation !== window.location) {
+      console.log('Location changed')
       setDelta(0)
+      setLastDirection(DOWN)
+      setLastLocation(window.location)
     } else {
-      setDelta(delta + Math.abs(scrollTop - lastScrollTop))
+      if (direction !== lastDirection) {
+        setLastDirection(direction)
+        setDelta(0)
+      } else {
+        setDelta(delta + Math.abs(scrollTop - lastScrollTop))
+      }
     }
+
     setLastScrollTop(scrollTop)
   }, [scrollTop, window.location])
 
-  const collapsed = 
+  const collapsed =
     (lastDirection === DOWN && delta > 100) ||
     (lastDirection === UP && delta < 20)
+
+  console.log(lastDirection, lastLocation)
 
   return (
     <StyledOuterContainer>
       <StyledInnerContainer collapsed={collapsed}>
         <StyledHeader collapsed={collapsed}>
-          <StyledLink to="/">
-            {siteTitle}
-          </StyledLink>
+          <StyledLink to="/">{siteTitle}</StyledLink>
         </StyledHeader>
       </StyledInnerContainer>
     </StyledOuterContainer>
