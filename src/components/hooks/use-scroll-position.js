@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import _throttle from 'lodash/throttle' 
 
 let supportsPassive = false
+const windowGlobal = typeof window !== 'undefined' && window;
 
 try {
   const opts = Object.defineProperty({}, 'passive', {
@@ -10,15 +11,15 @@ try {
       return null
     },
   })
-  window.addEventListener('testPassive', null, opts)
-  window.removeEventListener('testPassive', null, opts)
+  windowGlobal.addEventListener('testPassive', null, opts)
+  windowGlobal.removeEventListener('testPassive', null, opts)
 } catch (e) {
   console.log('Catch')
 }
 
 const getPosition = () => ({
-  x: window ? window.pageXOffset : 0,
-  y: window ? window.pageYOffset : 0,
+  x: windowGlobal ? windowGlobal.pageXOffset : 0,
+  y: windowGlobal ? windowGlobal.pageYOffset : 0,
 })
 
 const defaultOptions = {
@@ -34,7 +35,7 @@ const useWindowScrollPosition = options => {
       setPosition(getPosition())
     }, opts.throttle)
 
-    window && window.addEventListener(
+    windowGlobal && windowGlobal.addEventListener(
       'scroll',
       handleScroll,
       supportsPassive ? { passive: true } : false
@@ -42,7 +43,7 @@ const useWindowScrollPosition = options => {
 
     return () => {
       handleScroll.cancel()
-      window && window.removeEventListener('scroll', handleScroll)
+      windowGlobal && windowGlobal.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
