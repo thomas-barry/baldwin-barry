@@ -47,8 +47,6 @@ const Header = ({ siteTitle }) => {
     setLastScrollTop(scrollTop)
   }, [scrollTop])
 
-  console.log('Collapsed', collapsed)
-
   return (
     <StyledOuterContainer>
       <StyledInnerContainer collapsed={collapsed}>

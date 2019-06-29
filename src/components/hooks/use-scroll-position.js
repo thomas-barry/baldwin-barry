@@ -17,8 +17,8 @@ try {
 }
 
 const getPosition = () => ({
-  x: window.pageXOffset,
-  y: window.pageYOffset,
+  x: window ? window.pageXOffset : 0,
+  y: window ? window.pageYOffset : 0,
 })
 
 const defaultOptions = {
@@ -34,7 +34,7 @@ const useWindowScrollPosition = options => {
       setPosition(getPosition())
     }, opts.throttle)
 
-    window.addEventListener(
+    window && window.addEventListener(
       'scroll',
       handleScroll,
       supportsPassive ? { passive: true } : false
@@ -42,7 +42,7 @@ const useWindowScrollPosition = options => {
 
     return () => {
       handleScroll.cancel()
-      window.removeEventListener('scroll', handleScroll)
+      window && window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
