@@ -5,9 +5,6 @@ import styled from '@emotion/styled'
 
 import useScrollPosition from '../hooks/use-scroll-position'
 
-const DOWN = 0
-const UP = 1
-
 const StyledOuterContainer = styled.div`
   position: fixed;
   top: 0;
@@ -42,41 +39,15 @@ const StyledLink = styled(Link)`
 
 const Header = ({ siteTitle }) => {
   const { y: scrollTop } = useScrollPosition()
-  const [lastLocation, setLastLocation] = useState(window.location)
   const [lastScrollTop, setLastScrollTop] = useState(scrollTop)
-  const [lastDirection, setLastDirection] = useState(DOWN)
-  const [delta, setDelta] = useState(lastScrollTop)
+  const [collapsed, setCollapsed] = useState(false)
 
   useEffect(() => {
-    const direction =
-      scrollTop !== lastScrollTop
-        ? scrollTop > lastScrollTop
-          ? DOWN
-          : UP
-        : lastDirection
-
-    if (lastLocation !== window.location) {
-      console.log('Location changed')
-      setDelta(0)
-      setLastDirection(DOWN)
-      setLastLocation(window.location)
-    } else {
-      if (direction !== lastDirection) {
-        setLastDirection(direction)
-        setDelta(0)
-      } else {
-        setDelta(delta + Math.abs(scrollTop - lastScrollTop))
-      }
-    }
-
+    setCollapsed(scrollTop > lastScrollTop)
     setLastScrollTop(scrollTop)
-  }, [scrollTop, window.location])
+  }, [scrollTop])
 
-  const collapsed =
-    (lastDirection === DOWN && delta > 100) ||
-    (lastDirection === UP && delta < 20)
-
-  console.log(lastDirection, lastLocation)
+  console.log('Collapsed', collapsed)
 
   return (
     <StyledOuterContainer>
