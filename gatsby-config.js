@@ -1,3 +1,15 @@
+const sourceS3 = {
+  resolve: 'gatsby-source-s3',
+  options: {
+    aws: {
+      accessKeyId: '',
+      secretAccessKey: '',
+      region: 'us-east-1',
+    },
+    buckets: ['baldwinbarry-images'],
+  },
+}
+
 module.exports = {
   siteMetadata: {
     title: `Thomas Baldwin Barry`,
@@ -6,6 +18,7 @@ module.exports = {
     blogPath: 'blog',
   },
   plugins: [
+    sourceS3,
     `gatsby-plugin-no-sourcemaps`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
