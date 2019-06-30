@@ -6,6 +6,7 @@ module.exports = {
     blogPath: 'blog',
   },
   plugins: [
+    `gatsby-plugin-no-sourcemaps`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-less`,
