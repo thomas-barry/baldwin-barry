@@ -1,12 +1,14 @@
+require('dotenv').config()
+
 const sourceS3 = {
   resolve: 'gatsby-source-s3',
   options: {
     aws: {
-      accessKeyId: '',
-      secretAccessKey: '',
+      accessKeyId: process.env.ENV_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.ENV_AWS_ACCESS_KEY,
       region: 'us-east-1',
     },
-    buckets: ['baldwinbarry-images'],
+    buckets: [process.env.ENV_AWS_BUCKET_NAME],
   },
 }
 
