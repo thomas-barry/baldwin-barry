@@ -16,6 +16,7 @@
     "capybara-react-ui": "0.0.7",
     "clsx": "^1.0.4",
     "core-js": "^3.1.4",
+    "dotenv": "^8.0.0",
     "emotion-theming": "^10.0.10",
     "flexbox-react": "^4.4.0",
     "gatsby": "^2.9.7",
