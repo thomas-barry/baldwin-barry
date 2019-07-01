@@ -85,6 +85,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       })
     }
   }
+  if (node.internal.type == 'S3Image') {
+    createNodeField({
+      node,
+      name: 'portfolioSection',
+      value: node.Key.split('/')[0],
+    })
+  }
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
