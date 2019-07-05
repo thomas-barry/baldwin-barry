@@ -15,16 +15,16 @@ const StyledLivePreview = styled(LivePreview)`
   padding-top: 8px;
 `
 
-const scope = {
+const defaultScope = {
   withStateHandlers,
   Button,
 }
 
-const LiveDemo = ({ code, noInline = false }) => (
+const LiveDemo = ({ code, noInline = false, scope = {} }) => (
   <LiveProvider
-    code={code}
+    code={code.replace(/^\n/, '\n ').trim()}
     noInline={noInline}
-    scope={scope}
+    scope={{ ...scope, ...defaultScope }}
     transformCode={transformCode}>
     <StyledLiveEditor />
     <LiveError />
