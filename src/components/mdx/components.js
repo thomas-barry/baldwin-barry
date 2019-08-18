@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 
 const StyledAnchor = styled.a`
@@ -8,8 +7,6 @@ const StyledAnchor = styled.a`
     text-decoration: underline;
   }
 `
-
-// const Anchor = props => <a {...props} />
 
 const components = {
   a: StyledAnchor,
