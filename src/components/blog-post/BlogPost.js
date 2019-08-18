@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import { MDXProvider } from '@mdx-js/react'
 
 import ThemedLayout from '../layout/ThemedLayout'
@@ -16,7 +16,7 @@ export default function Template({ data: { mdx } }) {
       <MDXProvider components={components}>
         <Helmet title={`Baldwin.Barry- ${title}`} />
         <BlogHeading date={date} title={title} />
-        <MDXRenderer>{mdx.code.body}</MDXRenderer>
+        <MDXRenderer>{mdx.body}</MDXRenderer>
       </MDXProvider>
     </ThemedLayout>
   )
@@ -30,9 +30,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
       }
-      code {
-        body
-      }
+      body
     }
   }
 `
