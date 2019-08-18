@@ -16,6 +16,7 @@ const StyledLivePreview = styled(LivePreview)`
 `
 
 const defaultScope = {
+  styled,
   withStateHandlers,
   Button,
 }

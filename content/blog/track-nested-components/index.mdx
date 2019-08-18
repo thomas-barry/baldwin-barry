@@ -1,0 +1,45 @@
+---
+date: '2019-07-15'
+title: 'Tracking the depth of nested React components'
+---
+
+import LiveDemo from 'demos/live-demo/LiveDemo'
+
+<LiveDemo
+  noInline={true}
+  code={`
+const ContainerContext = React.createContext()
+ 
+const Container = ({ children }) => { 
+  const { level = 0 } = React.useContext(ContainerContext) || {}
+  
+  return (
+    <ContainerContext.Provider value={{ level: level + 1 }}>
+      {children}
+    </ContainerContext.Provider>
+  )
+} 
+  
+const Title = ({ children }) => {
+  const { level } = React.useContext(ContainerContext)
+  return <div>{Array(level + 1).join('* ')} {children}</div>
+}
+ 
+render(
+  <Container>
+    <Title>Oranges</Title>
+    <Container>
+      <Title>Bananas</Title>
+      <Container>
+        <Title>Apples</Title>
+      </Container>
+      <Container>
+        <Title>Grapes</Title>
+      </Container>
+    </Container>
+    <Container>
+      <Title>Peaches</Title>
+    </Container>
+  </Container>
+)
+`} />

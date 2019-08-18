@@ -59,6 +59,18 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
+            resolve: 'gatsby-remark-embedded-codesandbox',
+            options: {
+              directory: `${__dirname}/src/_examples/`,
+              protocol: 'embedded-codesandbox://',
+              embedOptions: {
+                view: 'preview',
+                hidenavigation: 1,
+              },
+              getIframe: url => `<iframe src="${url}" class="embedded-codesandbox"></iframe>`
+            }
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1080,
