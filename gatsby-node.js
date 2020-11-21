@@ -4,15 +4,15 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require('path')
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
-const isDevelopment = 'development' === process.env.NODE_ENV
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/components/blog-post/BlogPost.js`)
-  const pageTemplate = path.resolve(`src/components/page/Page.js`)
+  const { createPage } = actions;
+  const blogPostTemplate = path.resolve('src/components/blog-post/BlogPost.js');
+  const pageTemplate = path.resolve('src/components/page/Page.js');
 
   return graphql(`
     {
@@ -38,16 +38,16 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      return Promise.reject(result.errors);
     }
-    const blogPath = result.data.site.siteMetadata.blogPath
+    const { blogPath } = result.data.site.siteMetadata;
     result.data.allMdx.edges.forEach(({ node }) => {
-      const sourceName = node.fields.sourceName
+      const { sourceName } = node.fields;
       if (
-        'blog' === sourceName &&
-        (isDevelopment || !!!node.frontmatter.unfinished)
+        sourceName === 'blog'
+        && (isDevelopment || !node.frontmatter.unfinished)
       ) {
         createPage({
           path: `/${blogPath}${node.fields.slug}`,
@@ -56,7 +56,7 @@ exports.createPages = ({ actions, graphql }) => {
             id: node.id,
             slug: node.fields.slug,
           },
-        })
+        });
       } else {
         createPage({
           path: `${node.fields.slug}`,
@@ -65,24 +65,24 @@ exports.createPages = ({ actions, graphql }) => {
             id: node.id,
             slug: node.fields.slug,
           },
-        })
+        });
       }
-    })
-  })
-}
+    });
+  });
+};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
   if (node.internal.type === 'Mdx') {
-    const parent = getNode(node.parent)
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({ node, name: `slug`, value: slug })
+    const parent = getNode(node.parent);
+    const slug = createFilePath({ node, getNode, basePath: 'pages' });
+    createNodeField({ node, name: 'slug', value: slug });
     if (parent.internal.type === 'File') {
       createNodeField({
-        name: `sourceName`,
+        name: 'sourceName',
         node,
         value: parent.sourceInstanceName,
-      })
+      });
     }
   }
   if (node.internal.type == 'S3Image') {
@@ -90,9 +90,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: 'portfolioSection',
       value: node.Key.split('/')[0],
-    })
+    });
   }
-}
+};
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -102,5 +102,5 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         path.resolve(__dirname, 'node_modules'),
       ],
     },
-  })
-}
+  });
+};
