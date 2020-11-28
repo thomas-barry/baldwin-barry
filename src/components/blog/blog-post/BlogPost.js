@@ -4,9 +4,9 @@ import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import { MDXProvider } from '@mdx-js/react'
 
-import ThemedLayout from '../layout/ThemedLayout'
+import ThemedLayout from '../../layout/ThemedLayout'
+import components from '../../mdx/components'
 import BlogHeading from '../blog-heading/BlogHeading'
-import components from '../mdx/components'
 
 export default function Template({ data: { mdx } }) {
   const { frontmatter } = mdx

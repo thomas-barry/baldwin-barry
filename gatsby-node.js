@@ -11,7 +11,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
-  const blogPostTemplate = path.resolve('src/components/blog-post/BlogPost.js');
+  const blogPostTemplate = path.resolve('src/components/blog/blog-post/BlogPost.js');
   const pageTemplate = path.resolve('src/components/page/Page.js');
 
   return graphql(`
@@ -104,3 +104,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     },
   });
 };
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  // Only update the `/app` page.
+  if (page.path.match(/^\/app/)) {
+    // page.matchPath is a special key that's used for matching pages
+    // with corresponding routes only on the client.
+    page.matchPath = "/app/*"
+    // Update the page.
+    createPage(page)
+  }
+}

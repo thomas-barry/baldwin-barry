@@ -27,10 +27,13 @@ const StyledContentContainer = styled.div`
 
 const Layout = ({ children }) => {
   const [mastheadHeight, setMastheadHeight] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const context = {
     mastheadHeight,
     setMastheadHeight,
+    menuOpen,
+    setMenuOpen,
   }
 
   return (

@@ -1,28 +1,58 @@
-import React, { useContext } from 'react'
+import React, { useRef, useContext } from 'react'
 import styled from '@emotion/styled'
 import Box from '@material-ui/core/Box';
+import { Link } from 'gatsby'
 
 import LayoutContext from '../../layout/LayoutContext'
 
-const Menu = ({ className }) => {
-  const { mastheadHeight: top }= useContext(LayoutContext) 
-
-  return top > 0 ? (
-    <Box 
-      className={className}
-      style={{ top }}>
-    Stuff
-    </Box>
-  ) : null
-}
-
-const StyledMenu = styled(Menu)`
+const Container = styled.div`
   position: absolute;
   background-color: lightgray;
-  top: 68px;
-  left: 0;
+  top: -10px;
   right: 0;
-  height: auto;
+  width: 280px;
+  transform: ${({ transformY }) => `translateY(${transformY}px)`};
+  transition: transform .3s; 
+  transition-timing-function: ease;
+  z-index: -1;
 `
 
-export default StyledMenu
+const Links = styled.ul`
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+`
+
+const Menu = ({ className }) => {
+  const menuRef = useRef()
+
+  const { 
+    mastheadHeight,
+    menuOpen,
+  } = useContext(LayoutContext) 
+
+  const transformY = menuOpen ? 
+    mastheadHeight : 
+    mastheadHeight - (menuRef.current ? menuRef.current.clientHeight : 0)
+
+  return (
+    <Container 
+      transformY={transformY}>
+      <Box 
+        p={2}
+        className={className}
+        ref={menuRef}>
+        <Links>
+          <li>
+            <Link to="/app/foo">Foo</Link>
+          </li>
+          <li>
+            <Link to="/resume">Resume</Link>
+          </li>
+        </Links>
+      </Box>
+    </Container>
+  )
+}
+
+export default Menu
