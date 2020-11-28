@@ -4,9 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import './src/css/normalize.css'
 import './src/css/prism.css'
 import './src/css/site.css'
+
+import 'fontsource-roboto/400.css'
+import 'fontsource-roboto-slab/300.css'
 
 export {
   default as wrapRootElement,

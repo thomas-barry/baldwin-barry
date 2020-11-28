@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography'
 
 import ThemedLayout from '../components/layout/ThemedLayout'
 import SEO from '../components/seo/Seo'
-import BlogIndex from '../components/blog/blog-index/BlogIndex'
 
 const Foo = () => <div>
   <Link to="/blog/20201119-reunion/">Blog</Link>

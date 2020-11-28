@@ -22,6 +22,7 @@ module.exports = {
   plugins: [
     sourceS3,
     'gatsby-plugin-no-sourcemaps',
+    'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
@@ -38,12 +39,12 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-typography",
-    //   options: {
-    //     pathToConfigModule: `src/typography/typography.js`
-    //   }
-    // },
+    {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: `src/typography/typography.js`
+      }
+    },
     {
       resolve: 'gatsby-plugin-emotion',
       options: {},

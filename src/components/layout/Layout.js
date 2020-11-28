@@ -2,18 +2,24 @@ import React, { useState }  from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
+import Box from '@material-ui/core/Box'
 
 import Masthead from '../masthead/Masthead'
 import LayoutContext from './LayoutContext'
 
-const StyledFooter = styled.footer`
+const Container = styled(Box)`
+  width: 100%;
+  height: 100%;
+`
+
+const Footer = styled.footer`
   margin-top: 1rem;
 `
 
-const StyledContentContainer = styled.div`
+const Content = styled.div`
   margin: 0 auto;
-  max-width: 960px;
   padding: 0px 16px 16px; 
+  width: 100%;
   padding-top: 80px;
   border-left: 1px solid darkgray;
   border-right: 1px solid darkgray;
@@ -22,6 +28,10 @@ const StyledContentContainer = styled.div`
   @media (max-width: 998px) {
     border-left: none;
     border-right: none;
+  }
+
+  @media (min-width: 960px) {
+    width: 960px;
   }
 `
 
@@ -36,6 +46,7 @@ const Layout = ({ children }) => {
     setMenuOpen,
   }
 
+
   return (
     <StaticQuery
       query={graphql`
@@ -49,12 +60,15 @@ const Layout = ({ children }) => {
       `}
       render={data => (
         <LayoutContext.Provider value={context}>
-          <Masthead 
-            siteTitle={data.site.siteMetadata.title} />
-          <StyledContentContainer>
-            {children}
-            <StyledFooter>© {new Date().getFullYear()}</StyledFooter>
-          </StyledContentContainer>
+          <Container 
+            display="flex">
+            <Masthead 
+              siteTitle={data.site.siteMetadata.title} />
+            <Content>
+              {children}
+              <Footer>© 2019 - {new Date().getFullYear()}</Footer>
+            </Content>
+          </Container> 
         </LayoutContext.Provider>
       )}
     />

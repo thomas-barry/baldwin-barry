@@ -9,14 +9,14 @@ const isDevelopment = 'development' === process.env.NODE_ENV
 const StyledBlogLink = styled(BlogLink)`
   h2 { 
     margin: 0;
-    font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 28px;
-    font-weight: 400;
+    font-family: 'Roboto Slab';
+    font-weight: 600;
     letter-spacing: 2px;
   }
 `
 
 const StyledDate = styled.div`
+  padding: 4px 0 8px 0;
   font-size: 14px;
 `
 
@@ -27,7 +27,7 @@ export default () => {
       render={data => {
         const blogPath = data.site.siteMetadata.blogPath
         return (
-          <div>
+          <React.Fragment>
             {data.allMdx.edges
               .filter(({ node }) => (isDevelopment || !node.frontmatter.unfinished))
               .map(({ node }) => (
@@ -42,7 +42,7 @@ export default () => {
                 </div>
               )
             )}
-          </div>
+          </React.Fragment>
         )
       }}
     />
