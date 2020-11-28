@@ -3,10 +3,11 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import { MDXProvider } from '@mdx-js/react'
+import Box from '@material-ui/core/Box'
 
-import ThemedLayout from '../layout/ThemedLayout'
+import ThemedLayout from '../../layout/ThemedLayout'
+import components from '../../mdx/components'
 import BlogHeading from '../blog-heading/BlogHeading'
-import components from '../mdx/components'
 
 export default function Template({ data: { mdx } }) {
   const { frontmatter } = mdx
@@ -16,7 +17,9 @@ export default function Template({ data: { mdx } }) {
       <MDXProvider components={components}>
         <Helmet title={`Baldwin.Barry- ${title}`} />
         <BlogHeading date={date} title={title} />
-        <MDXRenderer>{mdx.body}</MDXRenderer>
+        <Box fontWeight={400}>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </Box>
       </MDXProvider>
     </ThemedLayout>
   )

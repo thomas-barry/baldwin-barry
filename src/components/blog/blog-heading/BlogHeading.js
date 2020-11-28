@@ -2,15 +2,14 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const StyledContainer = styled.div`
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 0 0;
 `
 
 const StyledHeading = styled.h2`
   margin: 0;
-  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 28px;
-  font-weight: 400;
   letter-spacing: 2px;
+  font-family: 'Roboto Slab';
+  font-weight: 600;
   color: #bb0826;
 `
 
@@ -18,6 +17,7 @@ const StyledDate = styled.div`
   margin: 0;
   color: gray;
   font-size: 14px;
+  padding: 4px 0 8px 0;
 `
 
 export default ({ title, date }) => (

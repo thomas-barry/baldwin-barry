@@ -8,6 +8,7 @@ import ThemedLayout from '../layout/ThemedLayout'
 export default function Template({ data: { mdx } }) {
   const { frontmatter } = mdx
   const { title } = frontmatter
+
   return (
     <ThemedLayout>
       <Helmet title={`Baldwin.Barry- ${title}`} />

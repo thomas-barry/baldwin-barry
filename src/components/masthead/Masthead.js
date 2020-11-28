@@ -5,17 +5,20 @@ import styled from '@emotion/styled'
 import Box from '@material-ui/core/Box';
 
 import LayoutContext from '../layout/LayoutContext';
-// import Menu from './menu/Menu'
-// import MenuButton from './menu-button/MenuButton'
+import Menu from './menu/Menu'
+import MenuButton from './menu-button/MenuButton'
 
-const MastheadContainer = styled.div` 
+const FixedContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
+`
+
+const MastheadContainer = styled.div` 
   background: #bb0826;
   border-bottom: 3px solid #fcc60a;
-  z-index: 1;
 `
 
 const InnerContainer = styled.div`
@@ -44,26 +47,28 @@ const Masthead = ({ siteTitle }) => {
   const { setMastheadHeight } = useContext(LayoutContext)
 
   useEffect(() => {
-    setMastheadHeight(mastheadRef.current ? mastheadRef.current.clientHeight + 2 : 0)
+    setMastheadHeight(mastheadRef.current ? mastheadRef.current.clientHeight : 0)
   }, [mastheadRef.current])
 
   return (
-    <MastheadContainer ref={mastheadRef}>
-      <InnerContainer>
-        <Box 
-          display="flex"
-          flexDirection="row"
-          alignItems="center">
-          <Box flexGrow={1}>
-            <Heading>
-              <StyledLink to="/">{siteTitle}</StyledLink>
-            </Heading>
+    <FixedContainer ref={mastheadRef}>
+      <MastheadContainer>
+        <InnerContainer>
+          <Box 
+            display="flex"
+            flexDirection="row"
+            alignItems="center">
+            <Box flexGrow={1}>
+              <Heading>
+                <StyledLink to="/">{siteTitle}</StyledLink>
+              </Heading>
+            </Box>
+            <MenuButton />
           </Box>
-          {/* <MenuButton /> */}
-        </Box>
-        {/* <Menu>Menu</Menu> */}
-      </InnerContainer>
-    </MastheadContainer>
+          <Menu>Menu</Menu>
+        </InnerContainer>
+      </MastheadContainer>
+    </FixedContainer>
   )
 }
 
