@@ -16,9 +16,13 @@ const StyledIconButton = styled(IconButton)`
 `
 
 const MenuButton = () => {
-  const { menuOpen, setMenuOpen } = useContext(LayoutContext)
 
-  const handleClick = () => setMenuOpen(menuOpen => !menuOpen)
+  const { 
+    menuOpen, 
+    setMenuOpen,
+  } = useContext(LayoutContext)
+
+  const handleClick = () => !menuOpen && setMenuOpen(true)
 
   return (
     <StylesProvider injectFirst>

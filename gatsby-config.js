@@ -107,5 +107,12 @@ module.exports = {
         name: 'resume',
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/about`,
+        name: 'about',
+      },
+    },
   ],
 };

@@ -21,8 +21,8 @@ const Content = styled.div`
   padding: 0px 16px 16px; 
   width: 100%;
   padding-top: 80px;
-  border-left: 1px solid darkgray;
-  border-right: 1px solid darkgray;
+  border-left: 1px solid #d0cece;
+  border-right: 1px solid #d0cece;
   background-color: white;
 
   @media (max-width: 998px) {
