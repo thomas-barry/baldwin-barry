@@ -9,9 +9,10 @@ import ThemedLayout from '../../layout/ThemedLayout'
 import components from '../../mdx/components'
 import BlogHeading from '../blog-heading/BlogHeading'
 
-export default function Template({ data: { mdx } }) {
+export default function Template ({ data: { mdx } }) {
   const { frontmatter } = mdx
   const { title, date } = frontmatter
+
   return (
     <ThemedLayout>
       <MDXProvider components={components}>

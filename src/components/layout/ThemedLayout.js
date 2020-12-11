@@ -15,12 +15,10 @@ const theme = {
   buttonBorderRadius: '2px',
 }
 
-const ThemedLayout = ({ children }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Layout>{children}</Layout>
-    </ThemeProvider>
-  )
-}
+const ThemedLayout = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <Layout>{children}</Layout>
+  </ThemeProvider>
+)
 
 export default ThemedLayout

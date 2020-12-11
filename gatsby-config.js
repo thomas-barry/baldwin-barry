@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 
 const sourceS3 = {
   resolve: 'gatsby-source-s3',
@@ -6,18 +6,18 @@ const sourceS3 = {
     aws: {
       accessKeyId: process.env.ENV_AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.ENV_AWS_ACCESS_KEY,
-      region: 'us-east-1',
+      region: 'us-east-1'
     },
-    buckets: [process.env.ENV_AWS_BUCKET_NAME],
-  },
-};
+    buckets: [process.env.ENV_AWS_BUCKET_NAME]
+  }
+}
 
 module.exports = {
   siteMetadata: {
     title: 'Thomas Baldwin Barry',
     description: 'Random musings',
     author: '@gatsbyjs',
-    blogPath: 'blog',
+    blogPath: 'blog'
   },
   plugins: [
     sourceS3,
@@ -36,8 +36,8 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-      },
+        icon: 'src/images/gatsby-icon.png' // This path is relative to the root of the site.
+      }
     },
     {
       resolve: "gatsby-plugin-typography",
@@ -47,7 +47,7 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-emotion',
-      options: {},
+      options: {}
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -55,10 +55,10 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-images',
-            options: { maxWidth: 1080 },
-          },
-        ],
-      },
+            options: { maxWidth: 1080 }
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-plugin-mdx',
@@ -71,48 +71,48 @@ module.exports = {
               protocol: 'embedded-codesandbox://',
               embedOptions: {
                 view: 'preview',
-                hidenavigation: 1,
+                hidenavigation: 1
               },
-              getIframe: (url) => `<iframe src="${url}" class="embedded-codesandbox"></iframe>`,
-            },
+              getIframe: url => `<iframe src="${url}" class="embedded-codesandbox"></iframe>`
+            }
           },
           {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1080,
-              sizeByPixelDensity: false,
-            },
-          },
-        ],
-      },
+              sizeByPixelDensity: false
+            }
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
+        name: 'pages'
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/blog`,
-        name: 'blog',
-      },
+        name: 'blog'
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/resume`,
-        name: 'resume',
-      },
+        name: 'resume'
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/about`,
-        name: 'about',
-      },
-    },
-  ],
-};
+        name: 'about'
+      }
+    }
+  ]
+}
