@@ -25,7 +25,6 @@ module.exports = {
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
