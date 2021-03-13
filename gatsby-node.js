@@ -74,7 +74,6 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'Mdx') {
-    console.log(node.frontmatter)
     const parent = getNode(node.parent)
     const slug = createFilePath({ node, getNode, basePath: 'pages' })
     createNodeField({ node, name: 'slug', value: slug })
@@ -86,13 +85,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       })
     }
   }
-  if (node.internal.type === 'S3Image') {
-    createNodeField({
-      node,
-      name: 'portfolioSection',
-      value: node.Key.split('/')[0],
-    })
-  }
+  // if (node.internal.type === 'S3Image') {
+  //   createNodeField({
+  //     node,
+  //     name: 'portfolioSection',
+  //     value: node.Key.split('/')[0],
+  //   })
+  // }
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {

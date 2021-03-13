@@ -2,7 +2,7 @@ import React from 'react'
 
 import ThemedLayout from '../components/layout/ThemedLayout'
 import SEO from '../components/seo/Seo'
-import Gallery from '../components/gallery/Gallery'
+// import Gallery from '../components/gallery/Gallery'
 
 export default ({ data }) => {
   return (
@@ -11,7 +11,7 @@ export default ({ data }) => {
         title="Photo Gallery"
         keywords={[`gatsby`, `application`, `react`]}
       />
-      <Gallery />
+      {/* <Gallery /> */}
     </ThemedLayout>
   )
 }

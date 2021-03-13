@@ -36,7 +36,6 @@ const Gallery = () => {
   )
 
   const { node } = allS3Image.edges[index]
-  console.log(allS3Image)
   return (
     <StyledContainer onClick={() => setIndex(1)}>
       <Img sizes={node.file.image.sizes} />
