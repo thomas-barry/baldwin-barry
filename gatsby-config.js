@@ -1,16 +1,16 @@
 require('dotenv').config()
 
-const sourceS3 = {
-  resolve: 'gatsby-source-s3',
-  options: {
-    aws: {
-      accessKeyId: process.env.ENV_AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.ENV_AWS_ACCESS_KEY,
-      region: 'us-east-1'
-    },
-    buckets: [process.env.ENV_AWS_BUCKET_NAME]
-  }
-}
+// const sourceS3 = {
+//   resolve: 'gatsby-source-s3',
+//   options: {
+//     aws: {
+//       accessKeyId: process.env.ENV_AWS_ACCESS_KEY_ID,
+//       secretAccessKey: process.env.ENV_AWS_ACCESS_KEY,
+//       region: 'us-east-1'
+//     },
+//     buckets: [process.env.ENV_AWS_BUCKET_NAME]
+//   }
+// }
 
 module.exports = {
   siteMetadata: {
@@ -20,7 +20,7 @@ module.exports = {
     blogPath: 'blog'
   },
   plugins: [
-    sourceS3,
+    // sourceS3,
     'gatsby-plugin-no-sourcemaps',
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
