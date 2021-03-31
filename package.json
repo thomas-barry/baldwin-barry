@@ -13,6 +13,7 @@
     "@mdx-js/react": "^1.6.5",
     "@mdx-js/tag": "^0.20.3",
     "add": "^2.0.6",
+    "axios": "^0.20.0",
     "babel-eslint": "^10.1.0",
     "babel-standalone": "^6.26.0",
     "capybara-react-ui": "0.0.9",

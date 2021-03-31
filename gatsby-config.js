@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 // const sourceS3 = {
 //   resolve: 'gatsby-source-s3',
 //   options: {
@@ -18,6 +16,10 @@ module.exports = {
     description: 'Random musings',
     author: '@gatsbyjs',
     blogPath: 'blog'
+  },
+  proxy: {
+    prefix: '/api',
+    url: 'http://localhost:7071',
   },
   plugins: [
     // sourceS3,
