@@ -5,11 +5,13 @@ import ThemedLayout from '../components/layout/ThemedLayout'
 import SEO from '../components/seo/Seo'
 // import AnimatedGrid from '../components/sandbox/animated-grid/AnimatedGrid'
 
+const url = 'https://baldwinbarry-functions.azurewebsites.net/api/hello-world/thomas'
+
 const Sandbox = () => {
   const [message, setMessage] = useState('')
 
   const onClick = async () => {
-    const { data } = await axios.get('/api/hello-world/thomas')
+    const { data } = await axios.get(url)
     setMessage(data.message)
   }
 
