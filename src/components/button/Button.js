@@ -11,16 +11,16 @@ const StyledButton = withTheme(styled(BaseButton)`
         theme.secondaryHighlightBackgroundDisabled :
         theme.secondaryHighlightBackground :
       disabled ?
-      theme.highlightBackgroundDisabled :
-      theme.highlightBackground};
+        theme.highlightBackgroundDisabled :
+        theme.highlightBackground};
   color: ${({ theme, secondary, disabled }) =>
     secondary ?
       disabled ?
         theme.secondaryHighlightColorDisabled :
         theme.secondaryHighlightColor :
       disabled ?
-      theme.highlightColorDisabled :
-      theme.highlightColor};
+        theme.highlightColorDisabled :
+        theme.highlightColor};
   border-radius: ${({ theme }) => theme.buttonBorderRadius};
 `)
 

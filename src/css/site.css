@@ -11,13 +11,8 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  font-size: 18px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.58;
-  letter-spacing: -0.0666667px;
-  color: #727272;
-  background-color: rgb(245, 244, 244);
+  color: #596171;
+  background-color: #dadcdf;
 }
 
 .embedded-codesandbox {
@@ -25,3 +20,4 @@ body {
   height: 600px;
   border: 1px solid gray;
 }
+

@@ -8,9 +8,8 @@ const StyledContainer = styled.div`
 const StyledHeading = styled.h2`
   margin: 0;
   letter-spacing: 2px;
-  font-family: 'Roboto Slab';
   font-weight: 600;
-  color: #bb0826;
+  color: #A37414;
 `
 
 const StyledDate = styled.div`

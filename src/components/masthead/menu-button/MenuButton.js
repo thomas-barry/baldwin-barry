@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import styled from '@emotion/styled'
-import IconButton from '@material-ui/core/IconButton';
-import { StylesProvider } from "@material-ui/core/styles";
+import IconButton from '@material-ui/core/IconButton'
+import { StylesProvider } from "@material-ui/core/styles"
 
 import HamburgerIcon from '../../icons/hamburger/HamburgerIcon'
 import LayoutContext from '../../layout/LayoutContext'
 
 const StyledIcon = styled(HamburgerIcon)`
   path {
-    fill: white;
+    fill: #e9ebf0;
   }
 `
 const StyledIconButton = styled(IconButton)`
@@ -16,9 +16,8 @@ const StyledIconButton = styled(IconButton)`
 `
 
 const MenuButton = () => {
-
-  const { 
-    menuOpen, 
+  const {
+    menuOpen,
     setMenuOpen,
   } = useContext(LayoutContext)
 
@@ -26,9 +25,9 @@ const MenuButton = () => {
 
   return (
     <StylesProvider injectFirst>
-      <StyledIconButton 
-        disableRipple={true}
-        disableFocusRipple={true}
+      <StyledIconButton
+        disableRipple
+        disableFocusRipple
         onClick={handleClick}>
         <StyledIcon />
       </StyledIconButton>

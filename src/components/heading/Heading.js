@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 const StyledHeading = styled.h2`
   font-size: 28px;
   letter-spacing: 2px;
-  color: #4a4949;
+  color: #BC8034;
   margin: 2rem 0 1.5rem;
 `
 

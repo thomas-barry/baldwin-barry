@@ -2,9 +2,9 @@ import React, { useRef, useContext, useEffect } from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'
 
-import LayoutContext from '../layout/LayoutContext';
+import LayoutContext from '../layout/LayoutContext'
 import Menu from './menu/Menu'
 import MenuButton from './menu-button/MenuButton'
 
@@ -17,14 +17,13 @@ const FixedContainer = styled.div`
 `
 
 const MastheadContainer = styled.div` 
-  background: #bb0826;
-  border-bottom: 3px solid #fcc60a;
+  background: #596171;
 `
 
 const InnerContainer = styled.div`
   position: relative;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1024px;
   padding: 0.8rem 1.0875rem;
   padding: 0.8rem 1rem;
 `
@@ -33,12 +32,12 @@ const Heading = styled.h1`
   margin: 0;
   letter-spacing: 2px;
   font-weight: normal;
-  color: #dadada;
+  color: #e9ebf0;
   font-size: 24px;
 `
 
 const StyledLink = styled(Link)`
-  color: white;
+  color: #e9ebf0;
   text-decoration: none;
 `
 
@@ -54,7 +53,7 @@ const Masthead = ({ siteTitle }) => {
     <FixedContainer ref={mastheadRef}>
       <MastheadContainer>
         <InnerContainer>
-          <Box 
+          <Box
             display="flex"
             flexDirection="row"
             alignItems="center">
@@ -80,4 +79,4 @@ Masthead.defaultProps = {
   siteTitle: ``,
 }
 
-export default Masthead 
+export default Masthead

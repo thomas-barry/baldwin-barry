@@ -8,7 +8,7 @@ const BlogLink = ({ unfinished = false, ...props }) => {
       color: #727272;
       text-decoration: none;
       h2 {
-        color: ${unfinished ? 'gray' : '#bb0826'};
+        color: ${unfinished ? 'gray' : '#A37414'};
       }
     `} {...props} />
   )

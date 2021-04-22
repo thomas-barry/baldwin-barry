@@ -3,9 +3,10 @@ import axios from 'axios'
 
 import ThemedLayout from '../components/layout/ThemedLayout'
 import SEO from '../components/seo/Seo'
+import SnapScroll from '../components/sandbox/snap-scroll/SnapScroll'
 // import AnimatedGrid from '../components/sandbox/animated-grid/AnimatedGrid'
 
-const url = 'https://baldwinbarry-functions.azurewebsites.net/api/hello-world/thomas'
+const url = 'https://baldwinbarry-functions.azurewebsites.net/api/weather-history'
 
 const Sandbox = () => {
   const [message, setMessage] = useState('')
@@ -19,6 +20,7 @@ const Sandbox = () => {
     <ThemedLayout>
       <SEO title="Sandbox" keywords={[`gatsby`, `application`, `react`]} />
       {/* <AnimatedGrid /> */}
+      <SnapScroll />
       <button onClick={onClick}>Hello</button>
       {message && <div>{message}</div>}
     </ThemedLayout>
