@@ -1,7 +1,32 @@
 ---
 date: '2019-07-15'
 title: 'Tracking the depth of nested React components'
+thumbnail: './thumbnail.png'
 ---
+
+Ever need a component to know where it sits within a nested hierarchy of some other component?
+
+Let's say you have a `<Container>` that might render child `<Container>`, and that you have a component that needs
+to know how many parent `<Container>` components it has.  Something like this:
+
+```
+<List title="Fruits">
+    <List title="Citrus">
+      <Item name="Oranges" />
+      <Item name="Lemons" />
+      <Item name="Limes" />
+      <Container>
+        <Fruit>Oranges</Fruit>
+        <Fruit>Lemons</Fruit>
+        <Fruit>Grapefruit</Fruit>
+      </Container>
+      <Container>
+         <Title>Berries</Title>
+         <Fruit>Blueberries</Fruit>
+         <Fruit>Strawberries</Fruit>
+      </Container>
+   </Container>
+</List>
 
 import LiveDemo from 'demos/live-demo/LiveDemo'
 

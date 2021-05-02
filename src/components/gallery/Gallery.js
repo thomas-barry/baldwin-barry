@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import styled from '@emotion/styled'
 
-const StyledContainer = styled.div`
-  border: 5px solid red;
-  opacity: 1;
-  transition: opacity 0.6s ease-in-out;
-`
+// const StyledContainer = styled.div`
+//   border: 5px solid red;
+//   opacity: 1;
+//   transition: opacity 0.6s ease-in-out;
+// `
 
 const Gallery = () => {
   // const [index, setIndex] = useState(0)

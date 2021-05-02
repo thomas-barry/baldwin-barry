@@ -3,18 +3,18 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
-import ThemedLayout from '../layout/ThemedLayout'
+import Layout from '../layout/Layout'
 
-export default function Template({ data: { mdx } }) {
-  const { frontmatter } = mdx
-  const { title } = frontmatter
+export default function Template ({ data: { mdx } }) {
+    const { frontmatter } = mdx
+    const { title } = frontmatter
 
-  return (
-    <ThemedLayout>
-      <Helmet title={`Baldwin.Barry- ${title}`} />
-      <MDXRenderer>{mdx.body}</MDXRenderer>
-    </ThemedLayout>
-  )
+    return (
+        <Layout>
+            <Helmet title={`Baldwin.Barry- ${title}`} />
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+        </Layout>
+    )
 }
 
 export const pageQuery = graphql`

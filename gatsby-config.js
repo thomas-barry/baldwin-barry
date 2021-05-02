@@ -23,6 +23,7 @@ module.exports = {
   },
   plugins: [
     // sourceS3,
+    'gatsby-plugin-sass',
     'gatsby-plugin-no-sourcemaps',
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
@@ -46,10 +47,6 @@ module.exports = {
       options: {
         pathToConfigModule: `src/typography/typography.js`,
       }
-    },
-    {
-      resolve: 'gatsby-plugin-emotion',
-      options: {}
     },
     {
       resolve: 'gatsby-transformer-remark',

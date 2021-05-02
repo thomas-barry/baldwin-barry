@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-import ThemedLayout from '../components/layout/ThemedLayout'
+import Layout from '../components/layout/Layout'
 import SEO from '../components/seo/Seo'
-import SnapScroll from '../components/sandbox/snap-scroll/SnapScroll'
+// import SnapScroll from '../components/sandbox/snap-scroll/SnapScroll'
 // import AnimatedGrid from '../components/sandbox/animated-grid/AnimatedGrid'
+import FocusState from '../components/sandbox/focus-state/FocusState'
 
 const url = 'https://baldwinbarry-functions.azurewebsites.net/api/weather-history'
 
@@ -17,13 +18,14 @@ const Sandbox = () => {
   }
 
   return (
-    <ThemedLayout>
+    <Layout>
       <SEO title="Sandbox" keywords={[`gatsby`, `application`, `react`]} />
       {/* <AnimatedGrid /> */}
-      <SnapScroll />
-      <button onClick={onClick}>Hello</button>
-      {message && <div>{message}</div>}
-    </ThemedLayout>
+      {/* <SnapScroll /> */}
+      <FocusState />
+      {/* <button onClick={onClick}>Hello</button>
+      {message && <div>{message}</div>} */}
+    </Layout>
   )
 }
 

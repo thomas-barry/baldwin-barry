@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Babel from '@babel/standalone'
-import styled from '@emotion/styled'
 
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
@@ -10,15 +9,13 @@ const transformCode = code => {
       presets: ['react', 'stage-0'],
     }).code
   } catch (e) {
-    console.log('FAIL!!')
-    console.log(e)
     return code
   }
 }
 
-const StyledLiveEditor = styled(LiveEditor)`
-  font-size: 16px;
-`
+// const StyledLiveEditor = styled(LiveEditor)`
+//   font-size: 16px;
+// `
 
 const code = ` 
 class MyComponent extends React.Component {
@@ -42,7 +39,7 @@ class MyComponent extends React.Component {
 const LiveExample = () => {
   return (
     <LiveProvider code={code} transformCode={transformCode}>
-      <StyledLiveEditor />
+      <LiveEditor />
       <LiveError />
       <LivePreview />
     </LiveProvider>

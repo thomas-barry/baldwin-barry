@@ -1,20 +1,22 @@
 import React from 'react'
 
-import ThemedLayout from '../components/layout/ThemedLayout'
+import Layout from '../components/layout/Layout'
 import SEO from '../components/seo/Seo'
 // import Gallery from '../components/gallery/Gallery'
 
-export default ({ data }) => {
+const Gallery = ({ data }) => {
   return (
-    <ThemedLayout>
+    <Layout>
       <SEO
         title="Photo Gallery"
         keywords={[`gatsby`, `application`, `react`]}
       />
       {/* <Gallery /> */}
-    </ThemedLayout>
+    </Layout>
   )
 }
+
+export default Gallery
 
 // export const pageQuery = graphql`
 //   {

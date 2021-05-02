@@ -1,31 +1,28 @@
 import React from 'react'
-import { withTheme } from 'emotion-theming'
-import styled from '@emotion/styled'
 
-import { Button as BaseButton } from 'capybara-react-ui'
+// const StyledButton = styled.button`
+//     border: none;
+//     background: var(--clr-highlight);
+//     color: white;
+//     border-radius: 8px;
+//     padding: 4px 1rem;
+//     line-height: 1.8rem;
+//     cursor: pointer;
+//     &:focus {
+//         outline: none;
+//     }
+//     &:focus-visible {
+//         box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(var(--clrvals-highlight), 0.6);
+//     }
+//     &:active {
+//         background: rgba(var(--clrvals-primary), 0.6);
+//     }
+// `
 
-const StyledButton = withTheme(styled(BaseButton)`
-  background: ${({ theme, secondary, disabled }) =>
-    secondary ?
-      disabled ?
-        theme.secondaryHighlightBackgroundDisabled :
-        theme.secondaryHighlightBackground :
-      disabled ?
-        theme.highlightBackgroundDisabled :
-        theme.highlightBackground};
-  color: ${({ theme, secondary, disabled }) =>
-    secondary ?
-      disabled ?
-        theme.secondaryHighlightColorDisabled :
-        theme.secondaryHighlightColor :
-      disabled ?
-        theme.highlightColorDisabled :
-        theme.highlightColor};
-  border-radius: ${({ theme }) => theme.buttonBorderRadius};
-`)
-
-const Button = props => {
-  return <StyledButton {...props} />
-}
+const Button = React.forwardRef(({ onClick, disabled, focusDisabled, level = 'primary', ...props }, ref) => {
+  return (
+    <button onClick={onClick} disabled={disabled} focusDisabled={focusDisabled} ref={ref} {...props} />
+  )
+})
 
 export default Button
