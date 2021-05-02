@@ -1,4 +1,4 @@
 export default {
-  primary: 'blue',
-  myNewColor: '#000',
+    primary: 'blue',
+    myNewColor: '#000',
 }

@@ -21,14 +21,14 @@ import React from 'react'
 // `
 
 const FocusOutline = () =>
-  (<div>
-    <h1 tabIndex="0">This is a header</h1>
-    <div tabIndex="0">Accepts Focus</div>
-    <a href="http://192.168.2.23:8000/blog/20190723-ios-outline/">NYTimes</a>
-    <div>
-      <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" />
-      <label for="subscribeNews">Subscribe to newsletter?</label>
-    </div>
-  </div>)
+    (<div>
+        <h1 tabIndex="0">This is a header</h1>
+        <div tabIndex="0">Accepts Focus</div>
+        <a href="http://192.168.2.23:8000/blog/20190723-ios-outline/">NYTimes</a>
+        <div>
+            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" />
+            <label htmlFor="subscribeNews">Subscribe to newsletter?</label>
+        </div>
+    </div>)
 
 export default FocusOutline

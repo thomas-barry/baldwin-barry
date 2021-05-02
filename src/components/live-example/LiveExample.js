@@ -4,13 +4,13 @@ import * as Babel from '@babel/standalone'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 const transformCode = code => {
-  try {
-    return Babel.transform(code, {
-      presets: ['react', 'stage-0'],
-    }).code
-  } catch (e) {
-    return code
-  }
+    try {
+        return Babel.transform(code, {
+            presets: ['react', 'stage-0'],
+        }).code
+    } catch (e) {
+        return code
+    }
 }
 
 // const StyledLiveEditor = styled(LiveEditor)`
@@ -37,13 +37,13 @@ class MyComponent extends React.Component {
 `.trim()
 
 const LiveExample = () => {
-  return (
-    <LiveProvider code={code} transformCode={transformCode}>
-      <LiveEditor />
-      <LiveError />
-      <LivePreview />
-    </LiveProvider>
-  )
+    return (
+        <LiveProvider code={code} transformCode={transformCode}>
+            <LiveEditor />
+            <LiveError />
+            <LivePreview />
+        </LiveProvider>
+    )
 }
 
 export default LiveExample

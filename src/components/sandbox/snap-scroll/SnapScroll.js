@@ -22,9 +22,9 @@ import React from 'react'
 // `
 
 const SnapScroll = () => (
-  <div>
-    {Array.from({ length: 10 }, (_, i) => i).map(v => <div key={v}>{v + 1}</div>)}
-  </div>
+    <div>
+        {Array.from({ length: 10 }, (_, i) => i).map(v => <div key={v}>{v + 1}</div>)}
+    </div>
 )
 
 export default SnapScroll

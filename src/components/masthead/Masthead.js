@@ -22,7 +22,9 @@ const Masthead = ({ siteTitle }) => {
                     <Box
                         display="flex"
                         flexDirection="row"
-                        alignItems="center">
+                        alignItems="center"
+                        pl={3}
+                        pr={2}>
                         <Box flexGrow={1}>
                             <h1>
                                 <Link to="/">{siteTitle}</Link>

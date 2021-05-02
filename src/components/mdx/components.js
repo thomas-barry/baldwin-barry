@@ -8,7 +8,7 @@
 // `
 
 const components = {
-  // a: StyledAnchor,
+    // a: StyledAnchor,
 }
 
 export default components

@@ -12,15 +12,17 @@ import React, { useState } from 'react'
 //   }
 // `
 
-export default () => {
-  const [transition, setTransition] = useState(false)
+const Circle = () => {
+    const [transition, setTransition] = useState(false)
 
-  const onMouseEnter = () => setTransition(prev => !prev)
+    const onMouseEnter = () => setTransition(prev => !prev)
 
-  return (
-    <div
-      onMouseEnter={onMouseEnter}
-      className={transition && 'transition'}
-    />
-  )
+    return (
+        <div
+            onMouseEnter={onMouseEnter}
+            className={transition && 'transition'}
+        />
+    )
 }
+
+export default Circle

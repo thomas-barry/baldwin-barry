@@ -1,0 +1,27 @@
+.bb-blog-index {
+    .blog-link {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+    }
+    .thumbnail-placeholder {
+        width: 150px;
+        height: 150px;
+        background-color: #dadcdf;
+    }
+}
+
+.blog-heading {
+    h2 {
+        margin: 0;
+        letter-spacing: 2px;
+        font-weight: 600;
+        color: var(--clr-secondary);
+    }
+    .blog-date {
+        margin: 0;
+        color: gray;
+        font-size: 14px;
+        padding: 4px 0 8px 0;
+    }
+}

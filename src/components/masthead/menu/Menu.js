@@ -58,7 +58,6 @@ const Menu = ({ className }) => {
 
     return (
         <div
-            closing={closing}
             className="masthead-menu"
             style={styles}>
             {(menuOpen || closing) &&

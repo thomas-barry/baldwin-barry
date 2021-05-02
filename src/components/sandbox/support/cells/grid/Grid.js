@@ -27,15 +27,17 @@ import GridContext from '../GridContext'
 //   animation-play-state: ${({ animate }) => animate ? 'running' : 'paused'}
 // `
 
-export default ({ children }) => {
-  const { gridSize, animate } = useContext(GridContext)
-  return (
-    <Box>
-      <div
-        gridSize={gridSize}
-        animate={animate}>
-        {children}
-      </div>
-    </Box>
-  )
+const Grid = ({ children }) => {
+    const { gridSize, animate } = useContext(GridContext)
+    return (
+        <Box>
+            <div
+                gridSize={gridSize}
+                animate={animate}>
+                {children}
+            </div>
+        </Box>
+    )
 }
+
+export default Grid

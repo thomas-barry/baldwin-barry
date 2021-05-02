@@ -14,19 +14,19 @@ import transformCode from '../../lib/transform-code/transform-code'
 // `
 
 const defaultScope = {
-  Button,
+    Button,
 }
 
 const LiveDemo = ({ code, noInline = false, scope = {} }) => (
-  <LiveProvider
-    code={code.replace(/^\n/, '\n ').trim()}
-    noInline={noInline}
-    scope={{ ...scope, ...defaultScope }}
-    transformCode={transformCode}>
-    <LiveEditor />
-    <LiveError />
-    <LivePreview />
-  </LiveProvider>
+    <LiveProvider
+        code={code.replace(/^\n/, '\n ').trim()}
+        noInline={noInline}
+        scope={{ ...scope, ...defaultScope }}
+        transformCode={transformCode}>
+        <LiveEditor />
+        <LiveError />
+        <LivePreview />
+    </LiveProvider>
 )
 
 export default LiveDemo

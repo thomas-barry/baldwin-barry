@@ -5,15 +5,15 @@ import SEO from '../components/seo/Seo'
 // import Gallery from '../components/gallery/Gallery'
 
 const Gallery = ({ data }) => {
-  return (
-    <Layout>
-      <SEO
-        title="Photo Gallery"
-        keywords={[`gatsby`, `application`, `react`]}
-      />
-      {/* <Gallery /> */}
-    </Layout>
-  )
+    return (
+        <Layout>
+            <SEO
+                title="Photo Gallery"
+                keywords={[`gatsby`, `application`, `react`]}
+            />
+            {/* <Gallery /> */}
+        </Layout>
+    )
 }
 
 export default Gallery

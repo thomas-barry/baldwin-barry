@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Cell = ({
-  children
+    children
 }) => {
-  return (
-    <div>{children}</div>
-  )
+    return (
+        <div>{children}</div>
+    )
 }
 export default Cell

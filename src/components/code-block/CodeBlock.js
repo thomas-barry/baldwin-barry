@@ -6,15 +6,15 @@ import Prism from 'prismjs'
 // `
 
 const CodeBlock = ({ children, language }) => {
-  useEffect(() => Prism.highlightAll())
+    useEffect(() => Prism.highlightAll())
 
-  return (
-    <pre>
-      <code className={`language-${language}`}>
-        {children}
-      </code>
-    </pre>
-  )
+    return (
+        <pre>
+            <code className={`language-${language}`}>
+                {children}
+            </code>
+        </pre>
+    )
 }
 
 export default CodeBlock

@@ -1,0 +1,9 @@
+:root {
+    --clrvals-primary: 74, 71, 87;
+    --clrvals-secondary: 199, 102, 67;
+    --clrvals-highlight: 47, 106, 189;
+  
+    --clr-primary: rgb(var(--clrvals-primary));
+    --clr-secondary: rgb(var(--clrvals-secondary));
+    --clr-highlight: rgb(var(--clrvals-highlight));
+}

@@ -10,23 +10,23 @@ import FocusState from '../components/sandbox/focus-state/FocusState'
 const url = 'https://baldwinbarry-functions.azurewebsites.net/api/weather-history'
 
 const Sandbox = () => {
-  const [message, setMessage] = useState('')
+    const [message, setMessage] = useState('')
 
-  const onClick = async () => {
-    const { data } = await axios.get(url)
-    setMessage(data.message)
-  }
+    const onClick = async () => {
+        const { data } = await axios.get(url)
+        setMessage(data.message)
+    }
 
-  return (
-    <Layout>
-      <SEO title="Sandbox" keywords={[`gatsby`, `application`, `react`]} />
-      {/* <AnimatedGrid /> */}
-      {/* <SnapScroll /> */}
-      <FocusState />
-      {/* <button onClick={onClick}>Hello</button>
+    return (
+        <Layout>
+            <SEO title="Sandbox" keywords={[`gatsby`, `application`, `react`]} />
+            {/* <AnimatedGrid /> */}
+            {/* <SnapScroll /> */}
+            <FocusState />
+            {/* <button onClick={onClick}>Hello</button>
       {message && <div>{message}</div>} */}
-    </Layout>
-  )
+        </Layout>
+    )
 }
 
 export default Sandbox
