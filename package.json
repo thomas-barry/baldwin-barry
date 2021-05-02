@@ -41,6 +41,7 @@
     "gatsby-transformer-remark": "^4.1.0",
     "gatsby-transformer-sharp": "^3.4.0",
     "lodash": "^4.17.21",
+    "postcss": "^8.2.13",
     "prettier": "^2.2.1",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
