@@ -48,11 +48,11 @@ const BlogIndex = () => (
     <StaticQuery
         query={blogIndexQuery}
         render={data => {
+            console.log("DATA", data)
             const blogPath = data.site.siteMetadata.blogPath
             return (
                 <React.Fragment>
                     {data.allMdx.edges
-                        .filter(({ node }) => (isDevelopment))
                         .map(({ node }) => (
                             <Box key={node.id} mb={2} className="bb-blog-index">
                                 <BlogLink to={`/${blogPath}${node.fields.slug}`}>
