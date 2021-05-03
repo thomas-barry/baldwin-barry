@@ -1,8 +1,6 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-// const isDevelopment = process.env.NODE_ENV === 'development'
-
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
     const blogPostTemplate = path.resolve('src/components/blog/blog-post/BlogPost.js')
