@@ -1,12 +1,10 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import Box from '@material-ui/core/Box'
 
 import BlogLink from './BlogLink'
 import BlogHeading from '../blog-heading/BlogHeading'
-
-const isDevelopment = process.env.NODE_ENV === 'development'
 
 const blogIndexQuery = graphql`
   query {
@@ -23,11 +21,10 @@ const blogIndexQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             thumbnail {
               childImageSharp {
-                fixed(width: 150, height: 150) {
-                  ...GatsbyImageSharpFixed
-                }
+                gatsbyImageData(layout: FIXED, width: 150, height: 150)
               }
             }
+            thumbnailAltText
           }
           fields { 
             slug
@@ -58,7 +55,7 @@ const BlogIndex = () => (
                                     <Box>
                                         {node.frontmatter.thumbnail ? (
                                             <div>
-                                                <Img fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
+                                                <GatsbyImage image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData} alt={node.frontmatter.thumbnailAltText || ''} />
                                             </div>
                                         ) : <div className="thumbnail-placeholder" />}
                                     </Box>
