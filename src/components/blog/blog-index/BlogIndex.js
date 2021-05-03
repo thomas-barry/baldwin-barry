@@ -48,7 +48,6 @@ const BlogIndex = () => (
     <StaticQuery
         query={blogIndexQuery}
         render={data => {
-            console.log("DATA", data)
             const blogPath = data.site.siteMetadata.blogPath
             return (
                 <React.Fragment>
