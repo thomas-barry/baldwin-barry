@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Box from '@material-ui/core/Box'
 
 import BlogLink from './BlogLink'
 import BlogHeading from '../blog-heading/BlogHeading'
@@ -50,23 +49,22 @@ const BlogIndex = () => (
                 <React.Fragment>
                     {data.allMdx.edges
                         .map(({ node }) => (
-                            <Box key={node.id} mb={2} className="bb-blog-index">
+                            <div key={node.id} mb={2} className="bb-blog-index">
                                 <BlogLink to={`/${blogPath}${node.fields.slug}`}>
-                                    <Box>
+                                    <div className="bb-thumbnail">
                                         {node.frontmatter.thumbnail ? (
                                             <div>
                                                 <GatsbyImage image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData} alt={node.frontmatter.thumbnailAltText || ''} />
                                             </div>
                                         ) : <div className="thumbnail-placeholder" />}
-                                    </Box>
-                                    <Box ml={3}>
+                                    </div>
+                                    <div>
                                         <BlogHeading title={node.frontmatter.title} date={node.frontmatter.date} />
                                         <p>{node.excerpt}</p>
-                                    </Box>
+                                    </div>
                                 </BlogLink>
-                            </Box>
-                        )
-                        )}
+                            </div>
+                        ))}
                 </React.Fragment>
             )
         }}

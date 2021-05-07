@@ -1,3 +1,5 @@
+@import './breakpoints.scss';
+
 .bb-layout {
    width: 100%;
    height: 100%;
@@ -9,19 +11,15 @@
 
 .bb-content {
   margin: 0 auto;
-  padding: 48px;
+  padding: 1.6rem;
   width: 100%;
-  padding-top: 96px;
-  border-left: 1px solid #d0cece;
-  border-right: 1px solid #d0cece;
+  min-width: 300px;
   background-color: white;
 
-  @media (max-width: 998px) {
-    border-left: none;
-    border-right: none;
-  }
-
-  @media (min-width: 960px) {
+  @include mq($from: desktop) {
     width: 1024px;
+    padding: 2.5rem;
+    border-left: 1px solid #d0cece;
+    border-right: 1px solid #d0cece;
   }
 }

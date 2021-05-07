@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
                     <Box className="bb-layout" display="flex">
                         <Masthead
                             siteTitle={data.site.siteMetadata.title} />
-                        <div className="bb-content">
+                        <div className="bb-content" style={{ marginTop: mastheadHeight }}>
                             {children}
                             <div>© 2019 - {new Date().getFullYear()}</div>
                         </div>
