@@ -1,13 +1,24 @@
+@import './breakpoints.scss';
+
 .bb-blog-index {
     .blog-link {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         text-decoration: none;
+        @include mq($from: tablet) {
+            flex-direction: row;
+        }
     }
     .thumbnail-placeholder {
         width: 150px;
         height: 150px;
         background-color: #dadcdf;
+    }
+    .bb-thumbnail {
+        margin-bottom: 1em;
+        @include mq($from: tablet) {
+            margin-right: 1rem;
+        }
     }
 }
 
@@ -15,8 +26,12 @@
     h2 {
         margin: 0;
         letter-spacing: 2px;
+        font-size: 1.2rem;
         font-weight: 600;
         color: var(--clr-secondary);
+        @include mq($from: tablet) {
+            font-size: 1.5rem;
+        }
     }
     .blog-date {
         margin: 0;

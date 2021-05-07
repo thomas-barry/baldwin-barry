@@ -1,8 +1,11 @@
+@import "./breakpoints.scss";
+
 .bb-masthead-fixed-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    min-width: 300px;
     z-index: 1;
 }
 
@@ -11,18 +14,23 @@
     h1 {
         margin: 0;
         letter-spacing: 2px;
-        font-weight: normal;
         color: #e9ebf0;
-        font-size: 24px;
+        line-height: 3rem;
         a {
             color: #e9ebf0;
             text-decoration: none;
         }
     }
+
     .menu-button {
+        padding: 0;
         fill: #e9ebf0;
+        @include mq($from: tablet) {
+            display: none;
+        }
     }
-    .masthead-menu {
+
+    .dropdown-menu {
         position: absolute;
         background-color: #f0f0f0;
         border: 1px solid lightgray;
@@ -33,6 +41,7 @@
         right: 0;
         width: 280px;
         z-index: -1;
+
         ul {
             margin: 0;
             padding: 0;
@@ -52,6 +61,34 @@
                     background-color: #ffffff;
                 }
             }
+        }
+
+        @include mq($from: tablet) {
+            display: none;
+        }
+    }
+
+    .inline-menu {
+        display: none;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            list-style: none;
+            li {
+                margin: 0;
+                a {
+                    display: inline-block;
+                    padding-left: 24px;
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        @include mq($from: tablet) {
+            display: block;
         }
     }
 }

@@ -1,42 +1,51 @@
-*,
+@import './breakpoints.scss';
+
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin-top: 0;
+    box-sizing: border-box;
+    margin-top: 0;
 }
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 #___gatsby,
 #gatsby-focus-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  color: var(--clr-primary);
-  background-color: #dadcdf;
+    display: flex;
+    flex-direction: column;
+    color: var(--clr-primary);
+    background-color: #dadcdf;
 }
 
 .embedded-codesandbox {
-  width: 100%;
-  height: 600px;
-  border: 1px solid gray;
+    width: 100%;
+    height: 600px;
+    border: 1px solid gray;
 }
 
 ::-moz-focus-inner {
-  border: 0;
+    border: 0;
 }
 
 a {
-  color: var(--clr-primary);
-  &:visited {
     color: var(--clr-primary);
-  }
+    &:visited {
+        color: var(--clr-primary);
+    }
+}
+
+h1 {
+    font-weight: var(--fw-n);
+    font-size: var(--fs-b);
+    @include mq($from: tablet) {
+        font-size: var(--fs-1);
+    }
 }

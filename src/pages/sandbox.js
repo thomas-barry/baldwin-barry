@@ -1,30 +1,32 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 
+import Button from '../components/button/Button'
 import Layout from '../components/layout/Layout'
 import SEO from '../components/seo/Seo'
+
 // import SnapScroll from '../components/sandbox/snap-scroll/SnapScroll'
 // import AnimatedGrid from '../components/sandbox/animated-grid/AnimatedGrid'
-import FocusState from '../components/sandbox/focus-state/FocusState'
+// import FocusState from '../components/sandbox/focus-state/FocusState'
 
 const url = 'https://baldwinbarry-functions.azurewebsites.net/api/weather-history'
 
 const Sandbox = () => {
-    const [message, setMessage] = useState('')
+    const [weatherData, setWeatherData] = useState('')
 
     const onClick = async () => {
-        const { data } = await axios.get(url)
-        setMessage(data.message)
+        const response = await fetch(url, { method: 'GET' })
+        console.log('R', response)
+        const data = await response.json()
+        setWeatherData(data)
     }
+
+    console.log('D', weatherData)
 
     return (
         <Layout>
             <SEO title="Sandbox" keywords={[`gatsby`, `application`, `react`]} />
-            {/* <AnimatedGrid /> */}
-            {/* <SnapScroll /> */}
-            <FocusState />
-            {/* <button onClick={onClick}>Hello</button>
-      {message && <div>{message}</div>} */}
+            <Button onClick={onClick}>Submit</Button>
+            {weatherData && <div>{JSON.stringify(weatherData)}</div>}
         </Layout>
     )
 }
