@@ -64,7 +64,7 @@ const DropdownMenu = ({ links, className }) => {
                     </div>
                 }
             </div>
-            {menuOpen && !closing && <Overlay onClick={onOverlayClick} />}
+            {/* {menuOpen && !closing && <Overlay onClick={onOverlayClick} />} */}
         </React.Fragment>
     )
 }
