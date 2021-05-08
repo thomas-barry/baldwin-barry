@@ -1,15 +1,3 @@
-// const sourceS3 = {
-//   resolve: 'gatsby-source-s3',
-//   options: {
-//     aws: {
-//       accessKeyId: process.env.ENV_AWS_ACCESS_KEY_ID,
-//       secretAccessKey: process.env.ENV_AWS_ACCESS_KEY,
-//       region: 'us-east-1'
-//     },
-//     buckets: [process.env.ENV_AWS_BUCKET_NAME]
-//   }
-// }
-
 module.exports = {
     siteMetadata: {
         title: 'Thomas Baldwin Barry',
@@ -22,7 +10,6 @@ module.exports = {
         url: 'http://localhost:7071',
     },
     plugins: [
-    // sourceS3,
         'gatsby-plugin-sass',
         'gatsby-plugin-no-sourcemaps',
         'gatsby-plugin-material-ui',
@@ -34,12 +21,12 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                name: 'gatsby-starter-default',
-                short_name: 'starter',
+                name: 'BaldwinBarry',
+                short_name: 'BaldwinBarry',
                 start_url: '/',
                 background_color: '#663399',
                 theme_color: '#663399',
-                display: 'minimal-ui',
+                display: 'browser',
                 icon: 'src/images/gatsby-icon.png',
             }
         },
@@ -112,6 +99,13 @@ module.exports = {
             options: {
                 path: `${__dirname}/content/about`,
                 name: 'about'
+            }
+        },
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                path: `${__dirname/content/galleries}`,
+                name: 'gallery-images'
             }
         }
     ]
