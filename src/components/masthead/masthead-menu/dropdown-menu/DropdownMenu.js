@@ -1,8 +1,8 @@
 import React, { useRef, useState, useContext, useEffect } from 'react'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import { Link as GatsbyLink } from 'gatsby'
 
 import LayoutContext from '../../../layout/LayoutContext'
+import Overlay from '../../../overlay/Overlay'
 import MenuItems from '../menu-items/MenuItems'
 
 const TRANSITION_TIME = 250
@@ -44,11 +44,7 @@ const DropdownMenu = ({ links, className }) => {
         }
     }, [menuOpen, closing, menuRef.current])
 
-    const handleClickAway = () => {
-        if (menuOpen) {
-            setClosing(true)
-        }
-    }
+    const onOverlayClick = () => menuOpen && setClosing(true)
 
     const styles = {
         transform: `translateY(${translateY}px)`,
@@ -56,19 +52,20 @@ const DropdownMenu = ({ links, className }) => {
     }
 
     return (
-        <div
-            className="dropdown-menu"
-            style={styles}>
-            {(menuOpen || closing) &&
-                <ClickAwayListener onClickAway={handleClickAway}>
+        <React.Fragment>
+            <div
+                className="dropdown-menu"
+                style={styles}>
+                {(menuOpen || closing) &&
                     <div
                         ref={menuRef}
                         className={className}>
                         <MenuItems links={links} />
                     </div>
-                </ClickAwayListener>
-            }
-        </div>
+                }
+            </div>
+            {menuOpen && !closing && <Overlay onClick={onOverlayClick} />}
+        </React.Fragment>
     )
 }
 

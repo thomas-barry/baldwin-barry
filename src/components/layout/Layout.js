@@ -33,10 +33,10 @@ const Layout = ({ children }) => {
                     <Box className="bb-layout" display="flex">
                         <Masthead
                             siteTitle={data.site.siteMetadata.title} />
-                        <div className="bb-content" style={{ marginTop: mastheadHeight }}>
+                        {mastheadHeight > 0 && <div className="bb-content" style={{ marginTop: mastheadHeight }}>
                             {children}
                             <div>© 2019 - {new Date().getFullYear()}</div>
-                        </div>
+                        </div>}
                     </Box>
                 </LayoutContext.Provider>
             )}

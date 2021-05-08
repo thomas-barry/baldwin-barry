@@ -13,6 +13,7 @@
     "autoprefixer": "^10.2.5",
     "babel-eslint": "^10.1.0",
     "babel-standalone": "^6.26.0",
+    "classnames": "^2.3.1",
     "clsx": "^1.1.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.25.0",

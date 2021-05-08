@@ -31,6 +31,7 @@
         color: var(--clr-secondary);
         @include mq($from: tablet) {
             font-size: 1.5rem;
+            margin-top: 12px;
         }
     }
     .blog-date {

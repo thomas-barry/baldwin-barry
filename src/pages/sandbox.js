@@ -14,13 +14,11 @@ const Sandbox = () => {
     const [weatherData, setWeatherData] = useState('')
 
     const onClick = async () => {
-        const response = await fetch(url, { method: 'GET' })
-        console.log('R', response)
-        const data = await response.json()
-        setWeatherData(data)
+        console.log('Got click')
+        // const response = await fetch(url, { method: 'GET' })
+        // const data = await response.json()
+        // setWeatherData(data)
     }
-
-    console.log('D', weatherData)
 
     return (
         <Layout>
