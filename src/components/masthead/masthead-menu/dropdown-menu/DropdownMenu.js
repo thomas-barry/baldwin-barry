@@ -5,24 +5,16 @@ import LayoutContext from '../../../layout/LayoutContext'
 import Overlay from '../../../overlay/Overlay'
 import MenuItems from '../menu-items/MenuItems'
 
-const TRANSITION_TIME = 250
-
-const Link = ({ to, children }) => (
-    <li>
-        <GatsbyLink to={to}>
-            {children}
-        </GatsbyLink>
-    </li>
-)
+const TRANSITION_TIME = 200
 
 const DropdownMenu = ({ links, className }) => {
     const menuRef = useRef()
     const [closing, setClosing] = useState(false)
-    const [translateY, setTranslateY] = useState(0)
 
     const {
         menuOpen,
         setMenuOpen,
+        mastheadHeight,
     } = useContext(LayoutContext)
 
     useEffect(() => {
@@ -36,19 +28,12 @@ const DropdownMenu = ({ links, className }) => {
         return () => clearTimeout(timeout)
     }, [menuOpen, closing])
 
-    useEffect(() => {
-        if (menuOpen && !closing && menuRef.current) {
-            setTranslateY(menuRef.current.clientHeight)
-        } else {
-            setTranslateY(0)
-        }
-    }, [menuOpen, closing, menuRef.current])
-
     const onOverlayClick = () => menuOpen && setClosing(true)
 
     const styles = {
-        transform: `translateY(${translateY}px)`,
-        transition: `transform ${TRANSITION_TIME}ms ease`,
+        top: mastheadHeight,
+        height: menuOpen ? menuRef.current?.clientHeight : 0,
+        transition: `height ${TRANSITION_TIME}ms ease`,
     }
 
     return (
@@ -56,15 +41,13 @@ const DropdownMenu = ({ links, className }) => {
             <div
                 className="dropdown-menu"
                 style={styles}>
-                {(menuOpen || closing) &&
-                    <div
-                        ref={menuRef}
-                        className={className}>
-                        <MenuItems links={links} />
-                    </div>
-                }
+                <div
+                    ref={menuRef}
+                    className={className}>
+                    <MenuItems links={links} />
+                </div>
             </div>
-            {/* {menuOpen && !closing && <Overlay onClick={onOverlayClick} />} */}
+            {menuOpen && <Overlay onClick={onOverlayClick} />}
         </React.Fragment>
     )
 }

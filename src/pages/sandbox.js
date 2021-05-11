@@ -10,6 +10,39 @@ import SEO from '../components/seo/Seo'
 
 const url = 'https://baldwinbarry-functions.azurewebsites.net/api/weather-history'
 
+const GridDemo1 = () => {
+    return (
+        <div className="bb-grid-demo-1">
+            <div className="container">
+                <div className="header">
+                    Header
+                </div>
+                <div className="main-content">
+                    Main content
+                </div>
+                <div className="sidebar">
+                    Sidebar
+                </div>
+                <div className="left">
+                    Left
+                </div>
+                <div className="right">
+                    Right
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const GridDemo2 = () => {
+    return (
+        <div className="bb-container2">
+            <h1>Our Team</h1>
+            <div className="teamMember member-1"></div>
+        </div>
+    )
+}
+
 const Sandbox = () => {
     const [weatherData, setWeatherData] = useState('')
 
@@ -22,9 +55,10 @@ const Sandbox = () => {
 
     return (
         <Layout>
-            <SEO title="Sandbox" keywords={[`gatsby`, `application`, `react`]} />
-            <Button onClick={onClick}>Submit</Button>
-            {weatherData && <div>{JSON.stringify(weatherData)}</div>}
+            {/* <SEO title="Sandbox" keywords={[`gatsby`, `application`, `react`]} />
+            <Button onClick={onClick}>Submit</Button> */}
+            {/* {weatherData && <div>{JSON.stringify(weatherData)}</div>} */}
+            <GridDemo1 />
         </Layout>
     )
 }
