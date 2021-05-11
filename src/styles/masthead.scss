@@ -31,22 +31,20 @@
     }
 
     .dropdown-menu {
-        position: absolute;
+        position: fixed;
         background-color: #f0f0f0;
-        border: 1px solid lightgray;
         border-top: none;
         box-shadow: -3px 3px 6px 0px rgba(50, 50, 50, 0.3);
-        border-right: 1px solid #d0cece;
-        bottom: 0;
         right: 0;
         width: 280px;
-        z-index: -1;
+        overflow-y: hidden;
+        z-index: 100;
 
         ul {
             margin: 0;
             padding: 0;
             list-style-type: none;
-            li:not(last-of-type) {
+            li:not(:last-of-type) {
                 margin: 0;
                 border-bottom: 1px solid lightgray;
             }
