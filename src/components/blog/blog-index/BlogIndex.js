@@ -50,19 +50,19 @@ const BlogIndex = () => (
                     {data.allMdx.edges
                         .map(({ node }) => (
                             <div key={node.id} mb={2} className="bb-blog-index">
-                                <BlogLink to={`/${blogPath}${node.fields.slug}`}>
-                                    <div className="bb-thumbnail">
-                                        {node.frontmatter.thumbnail ? (
-                                            <div>
-                                                <GatsbyImage image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData} alt={node.frontmatter.thumbnailAltText || ''} />
-                                            </div>
-                                        ) : <div className="thumbnail-placeholder" />}
-                                    </div>
-                                    <div>
+                                <div className="bb-thumbnail">
+                                    {node.frontmatter.thumbnail ? (
+                                        <BlogLink to={`/${blogPath}${node.fields.slug}`}>
+                                            <GatsbyImage image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData} alt={node.frontmatter.thumbnailAltText || ''} />
+                                        </BlogLink>
+                                    ) : <div className="thumbnail-placeholder" />}
+                                </div>
+                                <div>
+                                    <BlogLink to={`/${blogPath}${node.fields.slug}`}>
                                         <BlogHeading title={node.frontmatter.title} date={node.frontmatter.date} />
-                                        <p>{node.excerpt}</p>
-                                    </div>
-                                </BlogLink>
+                                    </BlogLink>
+                                    <p>{node.excerpt}</p>
+                                </div>
                             </div>
                         ))}
                 </React.Fragment>

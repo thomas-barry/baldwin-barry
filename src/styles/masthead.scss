@@ -1,14 +1,5 @@
 @import "./breakpoints.scss";
 
-.bb-masthead-fixed-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    min-width: 300px;
-    z-index: 2;
-}
-
 .bb-masthead {
     background: var(--clr-primary);
     h1 {

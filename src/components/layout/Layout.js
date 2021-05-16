@@ -2,19 +2,20 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Box from '@material-ui/core/Box'
+import Headroom from 'react-headroom'
 
 import Masthead from '../masthead/Masthead'
 import LayoutContext from './LayoutContext'
 
 const Layout = ({ children }) => {
-    const [mastheadHeight, setMastheadHeight] = useState(0)
     const [menuOpen, setMenuOpen] = useState(false)
+    const [mastheadHeight, setMastheadHeight] = useState(0)
 
     const context = {
-        mastheadHeight,
-        setMastheadHeight,
         menuOpen,
         setMenuOpen,
+        mastheadHeight,
+        setMastheadHeight,
     }
 
     return (
@@ -30,14 +31,15 @@ const Layout = ({ children }) => {
       `}
             render={data => (
                 <LayoutContext.Provider value={context}>
-                    <Box className="bb-layout" display="flex">
-                        <Masthead
-                            siteTitle={data.site.siteMetadata.title} />
-                        {mastheadHeight > 0 && <div className="bb-content" style={{ marginTop: mastheadHeight }}>
+                    <div className="bb-layout">
+                        <Headroom>
+                            <Masthead siteTitle={data.site.siteMetadata.title} />
+                        </Headroom>
+                        <div className="bb-content">
                             {children}
                             <div>© 2019 - {new Date().getFullYear()}</div>
-                        </div>}
-                    </Box>
+                        </div>
+                    </div>
                 </LayoutContext.Provider>
             )}
         />

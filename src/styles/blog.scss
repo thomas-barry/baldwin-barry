@@ -1,13 +1,14 @@
 @import './breakpoints.scss';
 
 .bb-blog-index {
+    display: flex;
+    flex-direction: column;
+    @include mq($from: tablet) {
+        flex-direction: row;
+    }
+
     .blog-link {
-        display: flex;
-        flex-direction: column;
         text-decoration: none;
-        @include mq($from: tablet) {
-            flex-direction: row;
-        }
     }
     .thumbnail-placeholder {
         width: 150px;
