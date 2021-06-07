@@ -1080,10 +1080,12 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
-"@baldwinbarry/react-knob@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@baldwinbarry/react-knob/-/react-knob-0.0.10.tgz#1881db6b41438b01fd6c3c4569107fced3633631"
-  integrity sha512-cnHeDIz05B5nBgGgMQyo6fPeG1jvmsoOM10GGsF8VcOLaeROcBn1tHX9tKMmoBHVerx+bSFWg2oOWc02IwxIPQ==
+"@baldwinbarry/react-knob@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@baldwinbarry/react-knob/-/react-knob-0.0.11.tgz#942c31fa604c3b20b6f67ded15b9a239bc8ed215"
+  integrity sha512-c69KrhhIgGtpsAKTc9q+7KW2W7cNG1VJ6js5ZyFRqZjMmkn+TdI6LgIkFTYQJZh2aFhc5ygKRohQyCYuyrbuig==
+  dependencies:
+    mini-css-extract-plugin "^1.6.0"
 
 "@browniebroke/gatsby-image-gallery@^6.2.0":
   version "6.2.0"
@@ -11729,6 +11731,15 @@ mini-css-extract-plugin@1.3.9:
   version "1.3.9"
   resolved "https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-1.3.9.tgz"
   integrity sha512-Ac4s+xhVbqlyhXS5J/Vh/QXUz3ycXlCqoCPpg0vdfhsIBH9eg/It/9L1r1XhSCH737M1lqcWnMuWL13zcygn5A==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
+    webpack-sources "^1.1.0"
+
+mini-css-extract-plugin@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-1.6.0.tgz#b4db2525af2624899ed64a23b0016e0036411893"
+  integrity sha512-nPFKI7NSy6uONUo9yn2hIfb9vyYvkFu95qki0e21DQ9uaqNKDP15DGpK0KnV6wDroWxPHtExrdEwx/yDQ8nVRw==
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
