@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { LoremIpsum } from 'react-lorem-ipsum'
 
 import Button from '../components/button/Button'
 import Layout from '../components/layout/Layout'
@@ -20,16 +21,9 @@ const GridDemo1 = () => {
                     Header
                 </div>
                 <div className="main-content">
-                    Main content
-                </div>
-                <div className="sidebar">
-                    Sidebar
-                </div>
-                <div className="left">
-                    Left
-                </div>
-                <div className="right">
-                    Right
+                    <div className="lorem">
+                        <LoremIpsum p={20} />
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,7 +52,8 @@ const Sandbox = () => {
 
     return (
         <React.Fragment>
-            <ReactKnob value={value} onChange={setValue} />
+            {/* <ReactKnob value={value} onChange={setValue} /> */}
+            <GridDemo1 />
         </React.Fragment>
     )
 
